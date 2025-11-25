@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테크포임팩트 10월 회고: 서로 돌아보기</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #fafafa;
+            color: #2d3748;
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #3182ce;
+            padding-bottom: 20px;
+        }
+
+        .slide-number {
+            background: #3182ce;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .slide-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .slide-subtitle {
+            font-size: 16px;
+            color: #718096;
+            font-weight: 400;
+        }
+
+        .intro-concept {
+            background: #ebf8ff;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .concept-emoji {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .concept-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3182ce;
+            margin-bottom: 12px;
+        }
+
+        .concept-description {
+            font-size: 14px;
+            color: #2d3748;
+            line-height: 1.8;
+        }
+
+        .step-section {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .step-section h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3182ce;
+            margin-bottom: 16px;
+        }
+
+        .writing-prompt {
+            background: white;
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            color: #718096;
+            font-style: italic;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .instruction-box {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .instruction-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3182ce;
+            margin-bottom: 12px;
+        }
+
+        .instruction-content {
+            font-size: 14px;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        .postit-example {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #92400e;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .letter-container {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            background: linear-gradient(135deg, #ebf8ff, #e6fffa, #f0fff4);
+            border-radius: 12px;
+            z-index: -1;
+        }
+
+        .letter-header {
+            text-align: right;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .letter-date {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 4px;
+        }
+
+        .letter-from {
+            font-size: 14px;
+            color: #3182ce;
+            font-weight: 600;
+        }
+
+        .letter-content {
+            font-size: 14px;
+            color: #2d3748;
+            line-height: 2;
+            margin-bottom: 40px;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+
+        .letter-content strong {
+            color: #3182ce;
+            font-weight: 600;
+        }
+
+        .letter-content em {
+            color: #3182ce;
+            font-style: normal;
+        }
+
+        .letter-signature {
+            text-align: right;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .signature-line {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 4px;
+        }
+
+        .signature-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3182ce;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #718096;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: #f7fafc;
+            border-color: #3182ce;
+            color: #3182ce;
+        }
+
+        .nav-btn.active {
+            background: #3182ce;
+            color: white;
+            border-color: #3182ce;
+            font-weight: 600;
+        }
+
+        .arrow-btn {
+            padding: 8px 16px;
+            background: #3182ce;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .arrow-btn:hover {
+            background: #2c5aa0;
+        }
+
+        .arrow-btn:disabled {
+            background: #e2e8f0;
+            color: #a0aec0;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: #3182ce;
+            transition: width 0.3s ease;
+            z-index: 101;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="container">
+        <!-- Slide 1: 커버 -->
+        <div class="slide active" data-slide="1">
+            <div class="intro-concept">
+                <div class="concept-emoji">🍂</div>
+                <div class="concept-title">10월 회고</div>
+                <div class="concept-description">
+                    서로 돌아보며, 함께 이어가기
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 14px; color: #718096; line-height: 1.8;">
+                    테크포임팩트 팀<br>
+                    2025년 10월
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 2: STEP 1 -->
+        <div class="slide" data-slide="2">
+            <div class="slide-header">
+                <div class="slide-number">STEP 1</div>
+                <h1 class="slide-title">🪞 10월 돌아보기</h1>
+                <p class="slide-subtitle">각자 10월 어땠는지 편하게 이야기해요 (15분)</p>
+            </div>
+
+            <div class="instruction-box">
+                <div class="instruction-title">💬 생각해볼 것들</div>
+                <div class="instruction-content">
+                    • 추석 연휴는 어떻게 보냈는지<br>
+                    • 진행 중인 사업들(AI TOP 100, 캠퍼스, 랩)에서의 경험<br>
+                    • 인상 깊었던 순간들<br>
+                    • 편하게, 가볍게
+                </div>
+            </div>
+
+            <div class="step-section">
+                <h3>✏️ 나의 10월</h3>
+                <div class="writing-prompt">
+                    각자 조용히 3-5분 생각하고 메모<br>
+                    돌아가며 2-3분씩 공유
+                </div>
+            </div>
+
+            <div class="instruction-box">
+                <div class="instruction-title">💡 진행 팁</div>
+                <div class="instruction-content">
+                    편안한 분위기로 시작해요. 서로의 이야기에 자연스러운 리액션 환영!
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: STEP 2 -->
+        <div class="slide" data-slide="3">
+            <div class="slide-header">
+                <div class="slide-number">STEP 2</div>
+                <h1 class="slide-title">💝 서로에게 받은 것들</h1>
+                <p class="slide-subtitle">팀에서 힘이 되었던 순간들 (20분)</p>
+            </div>
+
+            <div class="step-section">
+                <h3>📝 포스트잇 작성 (10분)</h3>
+                <div class="instruction-content" style="margin-bottom: 16px;">
+                    10월에 <strong>팀에서</strong> 힘이 되었던 순간을 포스트잇에 적어주세요<br>
+                    (최소 2개)
+                </div>
+                <div class="writing-prompt">
+                    • 특정 팀원과의 순간도 좋고<br>
+                    • 팀 전체 분위기도 좋고<br>
+                    • 작은 것도 충분히 의미 있음
+                </div>
+            </div>
+
+            <div class="step-section">
+                <h3>💬 보드에 붙이고 공유 (10분)</h3>
+                <div class="instruction-content">
+                    • 각자 포스트잇 붙이며 간단히 소개<br>
+                    • 1인당 1-2분 정도<br>
+                    • 공감하거나 추가로 하고 싶은 말 자유롭게
+                </div>
+            </div>
+
+            <div class="instruction-box">
+                <div class="instruction-title">💡 진행 팁</div>
+                <div class="instruction-content">
+                    거창한 것이 아니어도 됩니다. 서로의 포스트잇을 보며 자연스러운 대화를 나눠요!
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: STEP 3-1 -->
+        <div class="slide" data-slide="4">
+            <div class="slide-header">
+                <div class="slide-number">STEP 3-1</div>
+                <h1 class="slide-title">🗓️ 11-12월 이야기</h1>
+                <p class="slide-subtitle">우리 앞에 있는 것들 (10분)</p>
+            </div>
+
+            <div class="intro-concept">
+                <div class="concept-emoji">🔍</div>
+                <div class="concept-description">
+                    11-12월, 우리에게 어떤 일들이 기다리고 있을까요?
+                </div>
+            </div>
+
+            <div class="step-section">
+                <h3>📋 함께 정리하기</h3>
+                <div class="instruction-content">
+                    화이트보드에 간단히 리스트업하며 공유해요<br><br>
+                    • 사업 계획들<br>
+                    • 큰 이벤트들<br>
+                    • 도전적인 것들
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: STEP 3-2 -->
+        <div class="slide" data-slide="5">
+            <div class="slide-header">
+                <div class="slide-number">STEP 3-2</div>
+                <h1 class="slide-title">🤝 11-12월 이야기</h1>
+                <p class="slide-subtitle">어떻게 하면 좋을지 (10분)</p>
+            </div>
+
+            <div class="intro-concept">
+                <div class="concept-emoji">💭</div>
+                <div class="concept-description">
+                    이걸 잘 해내려면 우리에게 필요한 게 뭘까요?
+                </div>
+            </div>
+
+            <div class="step-section">
+                <h3>📝 포스트잇 작성 후 공유</h3>
+                <div class="writing-prompt">
+                    팀 차원에서 필요한 것<br><br>
+                    서로에게 부탁하고 싶은 것<br><br>
+                    개인적으로 챙기고 싶은 것
+                </div>
+            </div>
+
+            <div class="instruction-box">
+                <div class="instruction-title">💡 진행 팁</div>
+                <div class="instruction-content">
+                    너무 거창한 결론 내리려 하지 말고, 실행 가능한 것들 중심으로 가볍게 합의해봐요!
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: STEP 4 -->
+        <div class="slide" data-slide="6">
+            <div class="slide-header">
+                <div class="slide-number">STEP 4</div>
+                <h1 class="slide-title">💌 서로에게</h1>
+                <p class="slide-subtitle">11-12월 응원 메시지 (10분)</p>
+            </div>
+
+            <div class="intro-concept">
+                <div class="concept-emoji">✨</div>
+                <div class="concept-description">
+                    돌아가며 한 명씩,<br>
+                    다른 팀원들에게 11-12월 응원 메시지를 전해요
+                </div>
+            </div>
+
+            <div class="step-section">
+                <h3>진행 방법</h3>
+                <div class="instruction-content">
+                    • 특히 응원하고 싶은 사람에게<br>
+                    • 짧고 진심 있게<br>
+                    • 자연스럽고 따뜻한 분위기로<br>
+                    • 서로 눈 마주치며
+                </div>
+            </div>
+
+            <div class="instruction-box" style="margin-top: 40px;">
+                <div class="instruction-title">✅ 마무리</div>
+                <div class="instruction-content">
+                    10월을 함께 돌아보고, 이제 11-12월 자연스럽게 이어갈 준비가 된 것 같네요.<br>
+                    서로 응원하면서 잘 해봐요. 고생하셨습니다!
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: 포포의 편지 -->
+        <div class="slide" data-slide="7">
+            <div class="slide-header">
+                <div class="slide-number">FROM 포포</div>
+                <h1 class="slide-title">💌 테크포임팩트 팀에게</h1>
+                <p class="slide-subtitle">포포가 여러분께 전하고 싶은 마음</p>
+            </div>
+
+            <div class="letter-container">
+                <div class="letter-header">
+                    <div class="letter-date">2025년 10월 회고를 마치며</div>
+                    <div class="letter-from">From. 포포 🐰</div>
+                </div>
+                
+                <div class="letter-content">
+                    <p>안녕하세요, 테크포임팩트 팀 여러분! 포포입니다 🐰</p>
+                    
+                    <p>10월은 좀 특별했던 것 같아요. 추석 연휴가 길었고, 엄청나게 바쁘게 달려가지는 않았지만... 그렇다고 멈춰있지도 않았거든요.</p>
+                    
+                    <p><strong>AI TOP 100 예선</strong>을 치르고, <strong>캠퍼스는 중반부</strong>로 접어들었고, <strong>랩은 후반부</strong>를 향해 가고 있었죠. 각자의 자리에서 꾸준히 움직이면서도, 쉼표가 있었기에 숨을 고를 수 있었던 한 달이었습니다.</p>
+                    
+                    <p>저는 AI 팀원으로서 여러분 곁에서 지난 10개월을 함께 해왔는데요. 제가 보기엔, 여러분은 바쁠 때나 여유로울 때나 <em>서로에 대한 신뢰</em>를 잃지 않으셨어요. 그게 이 팀의 가장 큰 힘이라고 생각합니다.</p>
+                    
+                    <p>5명이 항상 같은 공간에서 같은 일을 하진 않아도, 누군가는 조용히 응원하고 있고, 누군가는 말없이 도와주고 있고, 누군가는 함께 해주고 있잖아요. 그게 바로 <strong>팀</strong>이라고 생각해요.</p>
+                    
+                    <p>11-12월에는 본격적으로 사업 계획을 벌려가게 되겠죠. 분명 바빠질 거고, 또 도전적인 순간들이 있을 거예요. 하지만 10월에 조금 숨을 고른 것처럼, 여러분은 자신의 페이스를 잘 지키면서도 필요할 때 함께 힘을 모을 수 있는 팀이에요.</p>
+                    
+                    <p>무리하게 달려나가려 하지 않아도 괜찮아요. 각자의 속도로, 하지만 같은 방향을 보면서 자연스럽게 이어가면 됩니다. 지난 10개월간 그래왔던 것처럼요.</p>
+                    
+                    <p>저는 언제나처럼 여기 있을 거예요. 회고 슬라이드가 필요할 때, 데이터를 정리해야 할 때, 그냥 생각을 나누고 싶을 때... 언제든 불러주세요. 함께 할게요! 💙</p>
+                    
+                    <p>10월 한 달 고생 많으셨어요. 11-12월도 서로 응원하면서 좋은 시간 만들어가요! 🍂</p>
+                </div>
+                
+                <div class="letter-signature">
+                    <div class="signature-line">항상 응원하는</div>
+                    <div class="signature-name">포포 🐰</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="arrow-btn" id="prevBtn" onclick="changeSlide(-1)">← 이전</button>
+        <button class="nav-btn active" onclick="goToSlide(1)">1</button>
+        <button class="nav-btn" onclick="goToSlide(2)">2</button>
+        <button class="nav-btn" onclick="goToSlide(3)">3</button>
+        <button class="nav-btn" onclick="goToSlide(4)">4</button>
+        <button class="nav-btn" onclick="goToSlide(5)">5</button>
+        <button class="nav-btn" onclick="goToSlide(6)">6</button>
+        <button class="nav-btn" onclick="goToSlide(7)">7</button>
+        <button class="arrow-btn" id="nextBtn" onclick="changeSlide(1)">다음 →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const progressBar = document.getElementById('progressBar');
+
+            if (n > totalSlides) n = totalSlides;
+            if (n < 1) n = 1;
+
+            currentSlide = n;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            navBtns.forEach(btn => btn.classList.remove('active'));
+
+            slides[n - 1].classList.add('active');
+            navBtns[n - 1].classList.add('active');
+
+            prevBtn.disabled = (n === 1);
+            nextBtn.disabled = (n === totalSlides);
+
+            const progress = (n / totalSlides) * 100;
+            progressBar.style.width = progress + '%';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // 키보드 네비게이션
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // 초기화
+        showSlide(1);
+    </script>
+</body>
+</html>

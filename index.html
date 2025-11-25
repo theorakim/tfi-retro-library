@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테크포임팩트 도서관 | 회고 아카이브</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="library-title">📚 Team Tech for Impact 도서관</div>
+            <div class="library-subtitle">포포가 큐레이팅한 회고 아카이브</div>
+        </header>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="회고 검색...">
+            </div>
+            <button class="random-btn" onclick="randomBook()">🎲 랜덤 뽑기</button>
+        </div>
+
+        <div class="shelves">
+            <!-- 2024년 책장 -->
+            <div class="shelf-section">
+                <div class="shelf-year">2024</div>
+                <div class="shelf">
+                    <div class="book" data-id="1" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">타임라인 회고</div>
+                            <div class="book-date">2024.11</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="2" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">4L 회고</div>
+                            <div class="book-date">2024.12</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2025년 책장 -->
+            <div class="shelf-section">
+                <div class="shelf-year">2025</div>
+                <div class="shelf">
+                    <div class="book" data-id="3" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">KPT+ 회고</div>
+                            <div class="book-date">2025.01</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="4" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">히어로즈 저니</div>
+                            <div class="book-date">2025.02</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="5" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">임팩트 여정맵</div>
+                            <div class="book-date">2025.03</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="6" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">마무리와 시작</div>
+                            <div class="book-date">2025.05</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="7" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">4L 회고 2차</div>
+                            <div class="book-date">2025.06</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="8" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">사업별 회고</div>
+                            <div class="book-date">2025.07-09</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="9" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">따로 또 같이</div>
+                            <div class="book-date">2025.09</div>
+                        </div>
+                    </div>
+                    <div class="book" data-id="10" onclick="selectBook(this)">
+                        <div class="book-spine">
+                            <div class="book-title">서로 돌아보기</div>
+                            <div class="book-date">2025.10</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2026년 책장 -->
+            <div class="shelf-section">
+                <div class="shelf-year">2026</div>
+                <div class="shelf coming-soon">
+                    <div class="coming-soon-text">Coming Soon...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 서랍 (매뉴얼) -->
+        <div class="drawer">
+            <div class="drawer-handle" onclick="toggleDrawer()">
+                📖 매뉴얼 보기
+            </div>
+            <div class="drawer-content" id="drawerContent">
+                <div class="manual-list">
+                    <a href="manuals.html" class="manual-link">4L 회고</a>
+                    <a href="manuals.html" class="manual-link">KPT+ 회고</a>
+                    <a href="manuals.html" class="manual-link">따로 또 같이</a>
+                    <a href="manuals.html" class="manual-link">사업별 회고</a>
+                    <a href="manuals.html" class="manual-link">임팩트 여정맵</a>
+                    <a href="manuals.html" class="manual-link">타임라인 회고</a>
+                    <a href="manuals.html" class="manual-link">마무리와 시작</a>
+                    <a href="manuals.html" class="manual-link">히어로즈 저니</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 포포 -->
+        <div class="popo" onclick="window.location.href='popo.html'" title="포포와 아카이브 소개">
+            🐰
+        </div>
+    </div>
+
+    <!-- 책 상세 모달 -->
+    <div class="modal" id="bookModal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="book-cover">
+                <div class="cover-title" id="coverTitle"></div>
+                <div class="cover-date" id="coverDate"></div>
+                <div class="cover-info">
+                    <div class="participants" id="coverParticipants"></div>
+                    <div class="method" id="coverMethod"></div>
+                </div>
+            </div>
+            <button class="open-btn" id="openBtn" onclick="openBook()">펼쳐보기 →</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

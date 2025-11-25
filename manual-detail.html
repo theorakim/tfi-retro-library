@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매뉴얼 상세 - 테크포임팩트 회고 아카이브</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 마크다운 콘텐츠 스타일 */
+        .markdown-content {
+            background: #111111;
+            border: 1px solid #333333;
+            padding: 3rem;
+            margin: 2rem 0;
+            color: #fffef7;
+        }
+
+        .markdown-content h1 {
+            font-size: 2.5rem;
+            color: #fffef7;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fede00;
+            text-align: left;
+        }
+
+        .markdown-content h2 {
+            font-size: 2rem;
+            color: #fffef7;
+            margin: 2rem 0 1rem 0;
+            text-align: left;
+        }
+
+        .markdown-content h3 {
+            font-size: 1.5rem;
+            color: #fede00;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .markdown-content h4 {
+            font-size: 1.2rem;
+            color: #fffef7;
+            margin: 1.2rem 0 0.8rem 0;
+        }
+
+        .markdown-content p {
+            color: #fffef7;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .markdown-content ul,
+        .markdown-content ol {
+            color: #fffef7;
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .markdown-content li {
+            color: #fffef7;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .markdown-content strong {
+            color: #fede00;
+            font-weight: 600;
+        }
+
+        .markdown-content em {
+            color: #cccccc;
+            font-style: italic;
+        }
+
+        .markdown-content code {
+            background: #000000;
+            color: #fede00;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .markdown-content pre {
+            background: #000000;
+            border: 1px solid #333333;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .markdown-content blockquote {
+            border-left: 4px solid #fede00;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #cccccc;
+            font-style: italic;
+        }
+
+        .markdown-content hr {
+            border: none;
+            border-top: 1px solid #333333;
+            margin: 2rem 0;
+        }
+
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid #333333;
+            padding: 0.8rem;
+            text-align: left;
+            color: #fffef7;
+        }
+
+        .markdown-content th {
+            background: #1a1a1a;
+            color: #fede00;
+            font-weight: 600;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #cccccc;
+            font-style: italic;
+        }
+
+        .error {
+            background: #1a1a1a;
+            border: 1px solid #ff4444;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: #ff4444;
+            text-align: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body data-lang="ko">
+    <div class="container">
+        <header>
+            <button class="language-toggle" onclick="toggleLanguage()">
+                <span id="lang-toggle-text">EN</span>
+            </button>
+            <h1 data-ko="Team Tech for Impact" data-en="Team Tech for Impact">Team Tech for Impact</h1>
+            <div class="subtitle" data-ko="A Magazine Curated by Popo | Est. November 2024" data-en="A Magazine Curated by Popo | Est. November 2024">A Magazine Curated by Popo | Est. November 2024</div>
+        </header>
+
+        <nav>
+            <a href="index.html" class="nav-link" data-ko="회고들" data-en="Issues">회고들</a>
+            <a href="popos-notes.html" class="nav-link" data-ko="포포의 노트" data-en="Popo's Notes">포포의 노트</a>
+            <a href="manuals.html" class="nav-link active" data-ko="매뉴얼" data-en="Manuals">매뉴얼</a>
+            <a href="about.html" class="nav-link" data-ko="소개" data-en="About">소개</a>
+        </nav>
+
+        <div class="content">
+            <a href="manuals.html" class="back-link" data-ko="← 매뉴얼 목록으로" data-en="← Back to Manuals">← 매뉴얼 목록으로</a>
+
+            <div id="manual-content" class="markdown-content">
+                <div class="loading" data-ko="매뉴얼을 불러오는 중..." data-en="Loading manual...">매뉴얼을 불러오는 중...</div>
+            </div>
+        </div>
+
+        <footer>
+            <strong data-ko="Team Tech for Impact Magazine" data-en="Team Tech for Impact Magazine">Team Tech for Impact Magazine</strong><br>
+            <span data-ko="포포 큐레이팅 | 테일러 편집" data-en="Curated by Popo | Editorial Direction by Taylor">포포 큐레이팅 | 테일러 편집</span><br>
+            © 2025 Kakao Impact
+        </footer>
+    </div>
+
+    <div class="counter">
+        VISITORS: <span id="visitor-count">000000</span>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // URL에서 파일 이름 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+
+        if (!fileName) {
+            document.getElementById('manual-content').innerHTML =
+                '<div class="error">매뉴얼 파일을 찾을 수 없습니다.</div>';
+        } else {
+            // 마크다운 파일 로드 및 렌더링
+            fetch(`method/${fileName}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('파일을 불러올 수 없습니다.');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // marked 라이브러리 설정
+                    marked.setOptions({
+                        breaks: true,
+                        gfm: true
+                    });
+
+                    // 마크다운을 HTML로 변환
+                    const html = marked.parse(markdown);
+                    document.getElementById('manual-content').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading manual:', error);
+                    document.getElementById('manual-content').innerHTML =
+                        `<div class="error">매뉴얼을 불러오는 중 오류가 발생했습니다: ${error.message}</div>`;
+                });
+        }
+    </script>
+</body>
+</html>

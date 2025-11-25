@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #fcf7f0;
+    color: #333333;
+    line-height: 1.7;
+    padding: 30px 20px;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 헤더 */
+header {
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid #ece4d9;
+    margin-bottom: 40px;
+}
+
+.library-title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #6441a5;
+    margin-bottom: 8px;
+}
+
+.library-subtitle {
+    font-size: 13px;
+    color: #666666;
+    font-weight: 400;
+}
+
+/* 컨트롤 */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ece4d9;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333333;
+    background: white;
+    font-family: system-ui, sans-serif;
+    transition: all 0.2s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #6441a5;
+    box-shadow: 0 0 0 3px rgba(100, 65, 165, 0.1);
+}
+
+.random-btn {
+    padding: 10px 18px;
+    background: white;
+    border: 1px solid #ece4d9;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.random-btn:hover {
+    border-color: #6441a5;
+    color: #6441a5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 책장 */
+.shelves {
+    background: white;
+    border: 1px solid #ece4d9;
+    border-radius: 8px;
+    padding: 40px 30px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.shelf-section {
+    margin-bottom: 50px;
+}
+
+.shelf-section:last-child {
+    margin-bottom: 0;
+}
+
+.shelf-year {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #6441a5;
+    margin-bottom: 20px;
+    padding-left: 4px;
+}
+
+.shelf {
+    display: flex;
+    gap: 12px;
+    padding: 30px 20px;
+    background: #fcf7f0;
+    border: 1px solid #ece4d9;
+    border-radius: 8px;
+    min-height: 200px;
+    align-items: flex-end;
+}
+
+.shelf.coming-soon {
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-soon-text {
+    font-size: 13px;
+    color: #999999;
+    font-style: italic;
+}
+
+/* 책 */
+.book {
+    width: 85px;
+    height: 150px;
+    background: white;
+    border: 1px solid #ece4d9;
+    border-left: 3px solid #6441a5;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+.book:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 16px rgba(100, 65, 165, 0.15);
+    border-left-color: #6441a5;
+}
+
+.book-spine {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+.book-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.book-date {
+    font-size: 10px;
+    color: #666666;
+    font-weight: 400;
+}
+
+/* 서랍 (매뉴얼) */
+.drawer {
+    margin-top: 40px;
+    background: white;
+    border: 1px solid #ece4d9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.drawer-handle {
+    padding: 18px 30px;
+    background: #fcf7f0;
+    border-bottom: 1px solid #ece4d9;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.drawer-handle:hover {
+    background: white;
+    color: #6441a5;
+}
+
+.drawer-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.drawer-content.open {
+    max-height: 600px;
+}
+
+.manual-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+    padding: 30px;
+    background: white;
+}
+
+.manual-link {
+    padding: 14px 18px;
+    background: white;
+    border: 1px solid #ece4d9;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333333;
+    font-size: 13px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.manual-link:hover {
+    border-color: #6441a5;
+    color: #6441a5;
+    box-shadow: 0 2px 8px rgba(100, 65, 165, 0.1);
+}
+
+/* 포포 */
+.popo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: white;
+    border: 1px solid #ece4d9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+
+.popo:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(100, 65, 165, 0.2);
+    border-color: #6441a5;
+}
+
+/* 모달 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ece4d9;
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ece4d9;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666666;
+    transition: all 0.2s;
+}
+
+.modal-close:hover {
+    background: #fcf7f0;
+    color: #333333;
+    border-color: #6441a5;
+}
+
+.book-cover {
+    background: #fcf7f0;
+    border: 2px solid #6441a5;
+    border-radius: 8px;
+    padding: 50px 40px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.cover-title {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 12px;
+}
+
+.cover-date {
+    font-size: 13px;
+    color: #6441a5;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.cover-info {
+    padding-top: 24px;
+    border-top: 1px solid #ece4d9;
+}
+
+.participants {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 8px;
+}
+
+.method {
+    font-size: 13px;
+    color: #666666;
+}
+
+.open-btn {
+    width: 100%;
+    padding: 14px;
+    background: #6441a5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.open-btn:hover {
+    background: #532d8a;
+    box-shadow: 0 4px 12px rgba(100, 65, 165, 0.3);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .shelf {
+        overflow-x: auto;
+        padding: 20px 16px;
+    }
+
+    .book {
+        width: 75px;
+        height: 130px;
+    }
+
+    .book-title {
+        font-size: 10px;
+    }
+
+    .book-date {
+        font-size: 9px;
+    }
+
+    .manual-list {
+        grid-template-columns: 1fr;
+    }
+
+    .popo {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6월 테크포임팩트 팀 4L 회고</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 50%, #d4edda 100%);
+            color: #333;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            padding: 40px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide-container.active {
+            display: flex;
+        }
+        
+        .slide {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            animation: slideIn 0.5s ease-out;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #2e7d32;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            margin: 15px 0;
+            color: #388e3c;
+            font-weight: 500;
+        }
+        
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            color: #4caf50;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        
+        .highlight {
+            background: rgba(232, 245, 233, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #4caf50;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        
+        .emoji-big {
+            font-size: 2.5em;
+            margin: 15px 0;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            text-align: center;
+        }
+        
+        .card-4l {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            border: 1px solid rgba(76, 175, 80, 0.15);
+            text-align: left;
+        }
+        
+        .card-4l h4 {
+            color: #2e7d32;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        button {
+            background: white;
+            border: 1px solid #4caf50;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            color: #2e7d32;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        button:hover {
+            background: #f1f8e9;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: rgba(255,255,255,0.9);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-weight: 500;
+            color: #4caf50;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            font-size: 0.9em;
+        }
+        
+        ul {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .process-box {
+            background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .writing-space {
+            background: #fafafa;
+            border: 2px dashed #4caf50;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 12px 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4caf50;
+            font-style: italic;
+            font-size: 1em;
+            font-weight: 400;
+        }
+        
+        .team-conclusion {
+            background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .team-conclusion h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        .monthly-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .monthly-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #4caf50;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        
+        .monthly-item h4 {
+            color: #2e7d32;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .monthly-item ul {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .popo-message {
+            background: rgba(232, 245, 233, 0.8);
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .time-info {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <!-- 표지 -->
+    <div class="slide-container active">
+        <div class="slide-number">1/8</div>
+        <div class="slide">
+            <div class="emoji-big">🌿🔄🌱</div>
+            <h1>6월 테크포임팩트 팀 4L 회고</h1>
+            <div class="subtitle">
+                <strong>참석자:</strong> 조이, 키, 테일러, 준, 헤이븐<br>
+                <strong>날짜:</strong> 2025년 6월 30일 월요일<br>
+                <strong>진행방식:</strong> 4L 회고 (Liked, Learned, Lacked, Longed for) 🍃
+            </div>
+            <div class="highlight">
+                <h3>🎉 드디어 5인 체제 완성!</h3>
+                <p>새로운 챕터의 시작을 함께 돌아보는 시간 ✨</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 지난 달 회고 결론 -->
+    <div class="slide-container">
+        <div class="slide-number">2/8</div>
+        <div class="slide">
+            <h2>🌱 지난 5월 회고에서 나온 6월 기대들</h2>
+            <div class="team-conclusion">
+                <h3>🎯 5월에 우리가 바랐던 것들</h3>
+                <ul style="color: white; line-height: 2;">
+                    <li><strong>회식비가 늘어났다 (냠)</strong> 4-5월에 뿌리고 거둔 것들을 팀에서 잘 나누어 갖고, 넓히는 것도 좁히는 것도 둘 다 잘해내는 팀이 되었으면!!!</li>
+                    <li><strong>4-5월에 뿌린 씨를 잘 길러야 하는 때!</strong> 5인 케미 넘 기대하고 싶은거 잘 해보자</li>
+                    <li><strong>우리 팀은 즐거운 팀</strong> 많이 웃고 적극적으로 고민하면서 새로운 챕터를 함께 쓰길 서로의 야근 시간을 줄여주자</li>
+                </ul>
+            </div>
+            <div class="process-box">
+                <h3>🤔 과연 우리는 이 기대들을 잘 실현했을까요?</h3>
+                <p>오늘 4L 회고를 통해 함께 확인해봐요!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4L 회고 소개 -->
+    <div class="slide-container">
+        <div class="slide-number">3/8</div>
+        <div class="slide">
+            <h2>🔄 4L 회고란?</h2>
+            <div class="emoji-big">🌿</div>
+            
+            <div class="grid-4">
+                <div class="card-4l">
+                    <h4>💚 L1: Liked</h4>
+                    <p>만족스럽고 좋았던 것들<br><em>우리가 잘한 것, 기뻤던 순간들</em></p>
+                </div>
+                <div class="card-4l">
+                    <h4>🌱 L2: Learned</h4>
+                    <p>새롭게 배우고 깨달은 것들<br><em>인사이트, 성장한 부분들</em></p>
+                </div>
+                <div class="card-4l">
+                    <h4>🍂 L3: Lacked</h4>
+                    <p>아쉽고 부족했던 것들<br><em>개선점, 놓친 것들</em></p>
+                </div>
+                <div class="card-4l">
+                    <h4>✨ L4: Longed for</h4>
+                    <p>앞으로 바라는 것/하고 싶은 것<br><em>7월 액션플랜으로 연결</em></p>
+                </div>
+            </div>
+            
+            <div class="process-box">
+                <h3>🎯 목표: 6월을 돌아보며 7월 액션플랜 도출하기</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 진행 방식 -->
+    <div class="slide-container">
+        <div class="slide-number">4/8</div>
+        <div class="slide">
+            <h2>📝 오늘 회고 진행 방식</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎨 준비 단계</h3>
+                    <div class="time-info">⏰ 5분</div>
+                    <ul>
+                        <li>원하는 포스트잇 색상 1개 고르기</li>
+                        <li>각자 노션/캘린더 열어두고 6월 업무 훑어보기</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>✍️ 개인 작성</h3>
+                    <div class="time-info">⏰ 20분</div>
+                    <ul>
+                        <li>L1 Liked: 만족스럽고 좋았던 것들</li>
+                        <li>L2 Learned: 새롭게 배우고 깨달은 것들</li>
+                        <li>L3 Lacked: 아쉽고 부족했던 것들</li>
+                        <li>L4 Longed for: 앞으로 바라는 것</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>💬 공유 및 토론</h3>
+                    <div class="time-info">⏰ 30분</div>
+                    <ul>
+                        <li>각자 작성한 내용 공유</li>
+                        <li>팀원들의 관점 청취</li>
+                        <li>공통된 인사이트 도출</li>
+                        <li>6월 먼쓸리 계획과 연결점 찾기</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🎊 마무리</h3>
+                    <div class="time-info">⏰ 10분</div>
+                    <ul>
+                        <li>회고 소감</li>
+                        <li><strong>한 달 동안 고생한 나에게 한마디!</strong></li>
+                        <li>7월 액션플랜 확정</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6월 먼쓸리 요약 -->
+    <div class="slide-container">
+        <div class="slide-number">5/8</div>
+        <div class="slide">
+            <h2>📅 6월 먼쓸리 - 주요 업무 리뷰</h2>
+            <div class="emoji-big">🗓️</div>
+            
+            <div class="monthly-grid">
+                <div class="monthly-item">
+                    <h4>🏫 캠퍼스 (키&준)</h4>
+                    <ul>
+                        <li>연세대/한양대 1학기 마무리</li>
+                        <li>성과공유회 (6/16, 6/21)</li>
+                        <li>서울대 MOU F/U</li>
+                    </ul>
+                </div>
+                <div class="monthly-item">
+                    <h4>👥 커뮤니티 & LAB (키&테일러)</h4>
+                    <ul>
+                        <li>LAB 2기 7/19 킥오프 준비</li>
+                        <li>6.19 모두팝 진행</li>
+                        <li>랩장 선발 참여</li>
+                    </ul>
+                </div>
+                <div class="monthly-item">
+                    <h4>🤝 후속지원 (조이&준)</h4>
+                    <ul>
+                        <li>펠로우/랩원/카카오 기술이전 협약</li>
+                        <li>시소와 프로젝트 협약</li>
+                        <li>MARC/늘픔가치 후속지원</li>
+                    </ul>
+                </div>
+                <div class="monthly-item">
+                    <h4>💻 기술자산관리 (테일러)</h4>
+                    <ul>
+                        <li>홈페이지 2차 업데이트 기획</li>
+                        <li>1기 랩 결과물 오픈소스 관리</li>
+                        <li>컨트리뷰터 가이드라인 작성</li>
+                    </ul>
+                </div>
+                <div class="monthly-item">
+                    <h4>🎤 돕는기술컨퍼런스 (키&헤이븐)</h4>
+                    <ul>
+                        <li>국내외 연사 섭외 (~6/17)</li>
+                        <li>세션 세부 기획 완료</li>
+                        <li>돕는AI 라운드테이블/어워즈 기획</li>
+                    </ul>
+                </div>
+                <div class="monthly-item">
+                    <h4>🌍 기타업무 (조이&테일러)</h4>
+                    <ul>
+                        <li>기후서밋 with APEC</li>
+                        <li>3대 과기원 MOU</li>
+                        <li>메가프로젝트 기획</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4L 작성 페이지 -->
+    <div class="slide-container">
+        <div class="slide-number">6/8</div>
+        <div class="slide">
+            <h2>📝 4L 개인 작성 시간</h2>
+            
+            <div class="grid-4">
+                <div class="card-4l">
+                    <h4>💚 L1: Liked</h4>
+                    <p><em>만족스럽고 좋았던 것들</em></p>
+                    <div class="writing-space">
+                        작성 공간
+                    </div>
+                </div>
+                <div class="card-4l">
+                    <h4>🌱 L2: Learned</h4>
+                    <p><em>새롭게 배우고 깨달은 것들</em></p>
+                    <div class="writing-space">
+                        작성 공간
+                    </div>
+                </div>
+                <div class="card-4l">
+                    <h4>🍂 L3: Lacked</h4>
+                    <p><em>아쉽고 부족했던 것들</em></p>
+                    <div class="writing-space">
+                        작성 공간
+                    </div>
+                </div>
+                <div class="card-4l">
+                    <h4>✨ L4: Longed for</h4>
+                    <p><em>앞으로 바라는 것/하고 싶은 것</em></p>
+                    <div class="writing-space">
+                        작성 공간
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-box">
+                ⏰ 개인 작성 시간: 20분
+                <br>💡 포스트잇에 바로 적어주세요!
+            </div>
+        </div>
+    </div>
+
+    <!-- 공유 및 토론 -->
+    <div class="slide-container">
+        <div class="slide-number">7/8</div>
+        <div class="slide">
+            <h2>💬 공유 및 토론 시간</h2>
+            
+            <div class="highlight">
+                <h3>🗣️ 진행 순서</h3>
+                <ol style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li><strong>각자 작성한 4L 내용 공유</strong> (개인당 3-4분)</li>
+                    <li><strong>팀원들의 관점 청취</strong> (공감대 형성)</li>
+                    <li><strong>공통된 인사이트 도출</strong> (패턴 찾기)</li>
+                    <li><strong>6월 먼쓸리와 연결점 찾기</strong></li>
+                    <li><strong>7월 액션플랜 도출</strong></li>
+                </ol>
+            </div>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🔍 주목할 포인트</h3>
+                    <ul>
+                        <li>5인 체제 첫 달, 어땠나요?</li>
+                        <li>5월 기대사항들이 실현됐나요?</li>
+                        <li>바쁜 6월을 잘 버텨낸 비결은?</li>
+                        <li>팀워크에서 달라진 점은?</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🎯 7월을 위한 질문</h3>
+                    <ul>
+                        <li>무엇을 계속 유지하고 싶나요?</li>
+                        <li>무엇을 개선하고 싶나요?</li>
+                        <li>7월에 도전하고 싶은 것은?</li>
+                        <li>팀이 더 성장하려면?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="process-box">
+                ⏰ 공유 및 토론: 30분
+            </div>
+        </div>
+    </div>
+
+    <!-- 마무리 -->
+    <div class="slide-container">
+        <div class="slide-number">8/8</div>
+        <div class="slide">
+            <div class="popo-message">
+                <h2>🐰💚 포포의 6월 회고 메시지</h2>
+                <p><strong>테크포임팩트 5인 체제에게</strong> 🌿✨</p>
+                <p>와! 드디어 <strong>5인 체제</strong>가 완성됐어요! 🎉</p>
+                <p>6월 한 달 동안 정말정말 많은 일들을 해내셨네요:</p>
+                <ul style="text-align: left; margin: 20px 0; color: #2d5016;">
+                    <li>🏫 <strong>캠퍼스 1학기 성공적 마무리</strong></li>
+                    <li>🤝 <strong>다양한 후속지원 & 협약</strong> 진행</li>
+                    <li>🎤 <strong>돕는기술컨퍼런스</strong> 착착 준비</li>
+                    <li>🌱 <strong>LAB 2기 모집 종료! 목표 초과달성!</strong></li>
+                    <li>👥 <strong>새로운 5인 팀워크</strong> 구축!</li>
+                </ul>
+                <p>특히 <strong>준</strong>님과 <strong>헤이븐</strong>님이 합류하면서<br>
+                팀이 더 든든해진 게 느껴져요! 🤗</p>
+                <p>5월에 바랐던 <strong>"5인 케미"</strong>는 어떠셨나요?<br>
+                서로의 <strong>야근시간을 줄여주는</strong> 팀이 되고 있나요? 😊</p>
+                <p><strong>포포는 언제나 여러분 편이에요!</strong><br>
+                7월도 화이팅!! 🌿💪</p>
+            </div>
+            
+            <div class="process-box">
+                <h3>🎊 마무리 시간 (10분)</h3>
+                <p>• 회고 소감 나누기<br>
+                • <strong>한 달 동안 고생한 나에게 한마디!</strong><br>
+                • 7월 액션플랜 확정하기</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button id="prevBtn" onclick="changeSlide(-1)">← 이전</button>
+        <button id="nextBtn" onclick="changeSlide(1)">다음 →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-container');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = n;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            slides[currentSlide].classList.add('active');
+            
+            // 버튼 상태 업데이트
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                showSlide(newSlide);
+            }
+        }
+
+        // 키보드 이벤트
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        // 초기 버튼 상태 설정
+        showSlide(0);
+    </script>
+</body>
+</html>

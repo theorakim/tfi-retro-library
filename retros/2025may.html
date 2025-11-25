@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5월 테크포임팩트 팀 회고</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4a90e2 0%, #7b68ee 100%);
+            color: #333;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            padding: 40px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .slide-container.active {
+            display: flex;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #2c5aa0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        
+        h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #2d3748;
+            font-weight: bold;
+        }
+        
+        h3 {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #2d3748;
+            font-weight: bold;
+        }
+        
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .highlight {
+            background: rgba(255, 248, 220, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #2c5aa0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .emoji-big {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 2px solid #e2e8f0;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        button {
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #2c5aa0;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            color: #2c5aa0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: rgba(255,255,255,0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #5a67d8;
+        }
+        
+        ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .process-box {
+            background: linear-gradient(135deg, #3182ce 0%, #2c5aa0 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .writing-space {
+            background: #f7fafc;
+            border: 3px dashed #2c5aa0;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 20px 0;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            font-style: italic;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- 표지 -->
+    <div class="slide-container active">
+        <div class="slide-number">1/5</div>
+        <div class="slide">
+            <div class="emoji-big">🍎✨🐰</div>
+            <h1>5월 테크포임팩트 팀 회고</h1>
+            <div class="subtitle">
+                <strong>참석자:</strong> 조이, 키, 테일러<br>
+                <strong>날짜:</strong> 2025-05-29 목요일<br>
+                <strong>진행:</strong> 우리 셋이서 알콩달콩~ 💕
+            </div>
+        </div>
+    </div>
+
+    <!-- 1페이지 -->
+    <div class="slide-container">
+        <div class="slide-number">2/5</div>
+        <div class="slide">
+            <h2>📅 오늘 회고 배경</h2>
+            <div class="highlight">
+                <h3>🙈 지난 4월... 회고를 건너뛰었어요!</h3>
+                <p><strong>왜냐하면...</strong></p>
+                <ul>
+                    <li>🏠 홈페이지 QA로 정신없었고...</li>
+                    <li>🎤 돕기콘 콘텐츠 킥오프 준비에...</li>
+                    <li>🌸 5월 초 연휴까지 겹쳐서...</li>
+                </ul>
+            </div>
+            <div class="process-box">
+                <h3>그래서 오늘은! 🎯</h3>
+                <p>4-5월을 통째로 돌아보며<br><strong>3인 체제 마무리하기</strong> 전 우리만의 시간! 🤗</p>
+            </div>
+            <p style="font-style: italic; color: #666; margin-top: 30px;">
+                "3월 개강워크숍이 까마득한 옛날 같아요... 시간 참 빠르죠?" 📸
+            </p>
+        </div>
+    </div>
+
+    <!-- 2페이지 -->
+    <div class="slide-container">
+        <div class="slide-number">3/5</div>
+        <div class="slide">
+            <h2>🎯 오늘 회고 진행 방식</h2>
+            <div class="emoji-big">💡</div>
+            <h3>"마무리와 시작" 회고</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>🏆📚</h3>
+                    <p><strong>성취한 것 & 배운 것</strong><br>
+                    4-5월 우리가 해낸 것들 + 얻은 인사이트</p>
+                </div>
+                <div class="card">
+                    <h3>💝✨</h3>
+                    <p><strong>고마운 것 & 기대하는 것</strong><br>
+                    서로에게 감사한 순간들 + 앞으로의 기대</p>
+                </div>
+            </div>
+            
+            <div class="process-box">
+                <h3>⏰ 진행 방법</h3>
+                <p>각 섹션마다 <strong>5분 개인 작성</strong> → <strong>10분 함께 공유</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3페이지 -->
+    <div class="slide-container">
+        <div class="slide-number">4/5</div>
+        <div class="slide">
+            <h2>🏆📚 성취한 것 & 배운 것</h2>
+            
+            <div class="highlight">
+                <h3>🎉 4-5월 우리가 해낸 것들!</h3>
+                <p><em>개인적 성취와 팀 차원의 성과를 모두 적어주세요</em></p>
+            </div>
+            
+            <div class="writing-space">
+                📝 개인 작성 시간 (5분)
+            </div>
+            
+            <div class="highlight">
+                <h3>💡 바쁜 시기를 지나며 얻은 인사이트</h3>
+                <p><em>"아, 이런 걸 깨달았구나!" 하는 순간들</em></p>
+            </div>
+            
+            <div class="writing-space">
+                📝 개인 작성 시간 (5분)
+            </div>
+            
+            <div class="process-box">
+                🎤 함께 공유 시간 (10분)
+            </div>
+        </div>
+    </div>
+
+    <!-- 4페이지 -->
+    <div class="slide-container">
+        <div class="slide-number">4/6</div>
+        <div class="slide">
+            <h2>🏆📚 성취한 것 & 배운 것</h2>
+            
+            <div class="highlight">
+                <h3>🎉 4-5월 우리가 해낸 것들!</h3>
+                <p><em>개인적 성취와 팀 차원의 성과를 모두 적어주세요</em></p>
+            </div>
+            
+            <div class="writing-space">
+                📝 개인 작성 시간 (5분)
+            </div>
+            
+            <div class="highlight">
+                <h3>💡 바쁜 시기를 지나며 얻은 인사이트</h3>
+                <p><em>"아, 이런 걸 깨달았구나!" 하는 순간들</em></p>
+            </div>
+            
+            <div class="writing-space">
+                📝 개인 작성 시간 (5분)
+            </div>
+            
+            <div class="process-box">
+                🎤 함께 공유 시간 (10분)
+            </div>
+        </div>
+    </div>
+
+    <!-- 5페이지 -->
+    <div class="slide-container">
+        <div class="slide-number">5/6</div>
+        <div class="slide">
+            <h2>💝✨ 고마운 것 & 기대하는 것</h2>
+            
+            <div class="highlight">
+                <h3>🤗 서로에게 감사했던 순간들</h3>
+                <p><em>"이 사람이 있어서 다행이었다" 하는 순간들</em></p>
+            </div>
+            
+            <div class="writing-space">
+                📝 개인 작성 시간 (5분)
+            </div>
+            
+            <div class="highlight">
+                <h3>🚀 앞으로의 팀에 대한 기대</h3>
+                <p><em>새 팀원과 함께 하고 싶은 것들 + 더 좋은 팀이 되기 위한 바람들</em></p>
+            </div>
+            
+            <div class="writing-space">
+                📝 개인 작성 시간 (5분)
+            </div>
+            
+            <div class="process-box">
+                🎤 함께 공유 시간 (10분)
+            </div>
+        </div>
+    </div>
+
+    <!-- 6페이지 -->
+    <div class="slide-container">
+        <div class="slide-number">6/6</div>
+        <div class="slide">
+            <div class="popo-message">
+                <h2>🐰💬 포포가 하고 싶은 말</h2>
+                <p><strong>테크포임팩트 팀에게</strong> 🍎✨</p>
+                <p>여러분과 함께 일할 수 있어서 정말정말 기뻐요!!</p>
+                <p>이 바쁜 와중에 <strong>3명이서</strong> 정말 많은 일들을 해내셨어요:</p>
+                <ul style="text-align: left; margin: 15px 0;">
+                    <li>🎤 <strong>대규모 돕는 기술 컨퍼런스</strong> 준비</li>
+                    <li>🏫 <strong>캠퍼스 & 임팩트 클라이밋</strong> 업무 진행</li>
+                    <li>🔬 <strong>랩 2기</strong> 준비</li>
+                    <li>🚀 <strong>홈페이지 오픈</strong></li>
+                    <li>👥 <strong>새 멤버 영입</strong>까지!</li>
+                </ul>
+                <p>정말정말 <strong>고생 많으셨어요</strong> 😭💪</p>
+                <p>8월말 <strong>5인 체제</strong>(with 헤이븐 & 준식님)가 되기 전까지<br>
+                우리 셋이서 서로 <strong>토닥토닥</strong> 하면서 버텨봐요! 🤗</p>
+                <p><strong>포포는 언제나 여러분 편이에요!!</strong> 🎉💕</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; font-size: 1.3em; color: #2d3748;">
+                <strong>🎊 오늘 회고도 고생하셨어요!</strong><br>
+                <em>다음 회고에서는 4명이서 만나요~</em> 👥✨
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button id="prevBtn" onclick="changeSlide(-1)">← 이전</button>
+        <button id="nextBtn" onclick="changeSlide(1)">다음 →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-container');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = n;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            slides[currentSlide].classList.add('active');
+            
+            // 버튼 상태 업데이트
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                showSlide(newSlide);
+            }
+        }
+
+        // 키보드 이벤트
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        // 초기 버튼 상태 설정
+        showSlide(0);
+    </script>
+</body>
+</html>
