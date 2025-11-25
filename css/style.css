@@ -1,425 +1,520 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #fcf7f0;
-    color: #333333;
-    line-height: 1.7;
-    padding: 30px 20px;
-    font-size: 14px;
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    background: #000000;
+    color: #fffef7;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-size: 1.3125em;
+}
+
+/* 한글 폰트 적용 - 전체를 Noto Sans KR로 통일 */
+body[data-lang="ko"],
+body[data-lang="ko"] * {
+    font-family: 'Noto Sans KR', Helvetica, Arial, sans-serif !important;
+}
+
+/* 제목용 한글 폰트 - 더 굵은 웨이트 */
+body[data-lang="ko"] h1,
+body[data-lang="ko"] h2,
+body[data-lang="ko"] h3,
+body[data-lang="ko"] h4,
+body[data-lang="ko"] h5,
+body[data-lang="ko"] h6,
+body[data-lang="ko"] .retro-name,
+body[data-lang="ko"] .content-title {
+    font-family: 'Noto Sans KR', Helvetica, Arial, sans-serif !important;
+    font-weight: 700 !important;
+}
+
+/* 특별한 요소들 - 적절한 웨이트 조정 */
+body[data-lang="ko"] .retro-date {
+    font-weight: 600 !important;
+}
+
+body[data-lang="ko"] .retro-meta {
+    font-weight: 400 !important;
+}
+
+/* 영문 폰트 유지 */
+body[data-lang="en"],
+body[data-lang="en"] * {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif !important;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
+    width: 90%;
+    background: #000000;
 }
 
-/* 헤더 */
 header {
+    background: #000000;
+    color: #fffef7;
+    padding: 4rem 0 2rem 0;
     text-align: center;
-    padding: 40px 0;
-    border-bottom: 1px solid #ece4d9;
-    margin-bottom: 40px;
+    border-bottom: 3px solid #fede00;
+    margin-bottom: 2rem;
 }
 
-.library-title {
-    font-family: 'Merriweather', Georgia, serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: #6441a5;
-    margin-bottom: 8px;
-}
-
-.library-subtitle {
-    font-size: 13px;
-    color: #666666;
+h1 {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-size: 4rem;
     font-weight: 400;
+    margin: 0 0 1rem 0;
+    color: #fffef7;
+    line-height: 1.1;
+    letter-spacing: 1px;
 }
 
-/* 컨트롤 */
-.controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-.search-box {
-    flex: 1;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1px solid #ece4d9;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #333333;
-    background: white;
-    font-family: system-ui, sans-serif;
-    transition: all 0.2s;
-}
-
-.search-box input:focus {
-    outline: none;
-    border-color: #6441a5;
-    box-shadow: 0 0 0 3px rgba(100, 65, 165, 0.1);
-}
-
-.random-btn {
-    padding: 10px 18px;
-    background: white;
-    border: 1px solid #ece4d9;
-    border-radius: 8px;
-    font-size: 14px;
-    color: #333333;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.random-btn:hover {
-    border-color: #6441a5;
-    color: #6441a5;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* 책장 */
-.shelves {
-    background: white;
-    border: 1px solid #ece4d9;
-    border-radius: 8px;
-    padding: 40px 30px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-}
-
-.shelf-section {
-    margin-bottom: 50px;
-}
-
-.shelf-section:last-child {
-    margin-bottom: 0;
-}
-
-.shelf-year {
-    font-family: 'Merriweather', Georgia, serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #6441a5;
-    margin-bottom: 20px;
-    padding-left: 4px;
-}
-
-.shelf {
-    display: flex;
-    gap: 12px;
-    padding: 30px 20px;
-    background: #fcf7f0;
-    border: 1px solid #ece4d9;
-    border-radius: 8px;
-    min-height: 200px;
-    align-items: flex-end;
-}
-
-.shelf.coming-soon {
-    justify-content: center;
-    align-items: center;
-}
-
-.coming-soon-text {
-    font-size: 13px;
-    color: #999999;
+.subtitle {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-size: 1.2rem;
+    color: #fede00;
     font-style: italic;
+    letter-spacing: 0.5px;
 }
 
-/* 책 */
-.book {
-    width: 85px;
-    height: 150px;
-    background: white;
-    border: 1px solid #ece4d9;
-    border-left: 3px solid #6441a5;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    position: relative;
-}
-
-.book:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 16px rgba(100, 65, 165, 0.15);
-    border-left-color: #6441a5;
-}
-
-.book-spine {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-}
-
-.book-title {
-    font-size: 11px;
-    font-weight: 600;
-    color: #333333;
-    margin-bottom: 10px;
-}
-
-.book-date {
-    font-size: 10px;
-    color: #666666;
-    font-weight: 400;
-}
-
-/* 서랍 (매뉴얼) */
-.drawer {
-    margin-top: 40px;
-    background: white;
-    border: 1px solid #ece4d9;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-}
-
-.drawer-handle {
-    padding: 18px 30px;
-    background: #fcf7f0;
-    border-bottom: 1px solid #ece4d9;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333333;
+nav {
+    background: #000000;
+    padding: 2rem 0;
     text-align: center;
-    transition: all 0.2s;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #333;
 }
 
-.drawer-handle:hover {
-    background: white;
-    color: #6441a5;
-}
-
-.drawer-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.drawer-content.open {
-    max-height: 600px;
-}
-
-.manual-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 12px;
-    padding: 30px;
-    background: white;
-}
-
-.manual-link {
-    padding: 14px 18px;
-    background: white;
-    border: 1px solid #ece4d9;
-    border-radius: 8px;
+nav a {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    color: #fffef7;
     text-decoration: none;
-    color: #333333;
-    font-size: 13px;
-    text-align: center;
-    transition: all 0.2s;
+    margin: 0 3rem 0 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
 }
 
-.manual-link:hover {
-    border-color: #6441a5;
-    color: #6441a5;
-    box-shadow: 0 2px 8px rgba(100, 65, 165, 0.1);
+nav a:last-child {
+    margin-right: 0;
 }
 
-/* 포포 */
-.popo {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 56px;
-    height: 56px;
-    background: white;
-    border: 1px solid #ece4d9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
+nav a:hover,
+nav a:focus {
+    color: #fede00;
+    text-decoration: underline;
+}
+
+nav a.active {
+    color: #fede00;
+    font-weight: 600;
+}
+
+.language-toggle {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    border: 1px solid #333333;
+    color: #fffef7;
+    padding: 0.5rem 1rem;
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-size: 0.9rem;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.popo:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 20px rgba(100, 65, 165, 0.2);
-    border-color: #6441a5;
+.language-toggle:hover {
+    border-color: #fede00;
+    color: #fede00;
 }
 
-/* 모달 */
-.modal {
+.content {
+    max-width: 800px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 0 2rem 0;
+}
+
+.page {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
 }
 
-.modal.active {
+.page.active {
     display: block;
 }
 
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    border: 1px solid #ece4d9;
-    border-radius: 8px;
-    padding: 40px;
-    max-width: 450px;
-    width: 90%;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-}
-
-.modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    border: 1px solid #ece4d9;
-    background: white;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    color: #666666;
-    transition: all 0.2s;
-}
-
-.modal-close:hover {
-    background: #fcf7f0;
-    color: #333333;
-    border-color: #6441a5;
-}
-
-.book-cover {
-    background: #fcf7f0;
-    border: 2px solid #6441a5;
-    border-radius: 8px;
-    padding: 50px 40px;
+h2 {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    color: #fffef7;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 3rem 0 2rem 0;
+    line-height: 1.2;
     text-align: center;
-    margin-bottom: 24px;
 }
 
-.cover-title {
-    font-family: 'Merriweather', Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #333333;
-    margin-bottom: 12px;
+.retro-list {
+    list-style: none;
+    padding: 0;
 }
 
-.cover-date {
-    font-size: 13px;
-    color: #6441a5;
-    font-weight: 500;
-    margin-bottom: 24px;
-}
-
-.cover-info {
-    padding-top: 24px;
-    border-top: 1px solid #ece4d9;
-}
-
-.participants {
-    font-size: 13px;
-    color: #666666;
-    margin-bottom: 8px;
-}
-
-.method {
-    font-size: 13px;
-    color: #666666;
-}
-
-.open-btn {
-    width: 100%;
-    padding: 14px;
-    background: #6441a5;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 500;
+.retro-item {
+    padding: 2rem;
+    margin: 2rem 0;
+    background: #111111;
+    border: 1px solid #333333;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    border-radius: 0;
 }
 
-.open-btn:hover {
-    background: #532d8a;
-    box-shadow: 0 4px 12px rgba(100, 65, 165, 0.3);
+.retro-item:hover {
+    background: #1a1a1a;
+    border-color: #fede00;
+    transform: translateY(-2px);
 }
 
-/* 반응형 */
+.retro-date {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-size: 0.9rem;
+    color: #fede00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.retro-name {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem 0;
+    color: #fffef7;
+    line-height: 1.3;
+}
+
+.retro-meta {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-size: 1rem;
+    color: #cccccc;
+    font-style: italic;
+}
+
+.special {
+    background: #1a1a1a;
+    border: 2px solid #fede00;
+    box-shadow: 0 0 0 1px rgba(254, 222, 0, 0.2);
+}
+
+.special:hover {
+    background: #222222;
+    border-color: #fede00;
+}
+
+.retro-detail {
+    padding: 3rem;
+    background: #111111;
+    border: 1px solid #333333;
+    margin: 2rem 0;
+    color: #fffef7;
+}
+
+.retro-detail h1, .retro-detail h2, .retro-detail h3, .retro-detail h4, .retro-detail h5, .retro-detail h6 {
+    color: #fffef7;
+}
+
+.retro-detail p, .retro-detail div, .retro-detail span, .retro-detail li {
+    color: #fffef7;
+}
+
+.retro-detail strong {
+    color: #fede00;
+}
+
+.back-link {
+    display: inline-block;
+    margin: 2rem 0;
+    color: #fede00;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: #fffef7;
+    text-decoration: underline;
+}
+
+.manual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.manual-item {
+    padding: 2rem;
+    background: #111111;
+    border: 1px solid #333333;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.manual-item:hover {
+    background: #1a1a1a;
+    border-color: #fede00;
+    transform: translateY(-2px);
+}
+
+.manual-item h3 {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    color: #fffef7;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.manual-item p {
+    color: #cccccc;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.manual-card {
+    padding: 2rem;
+    background: #111111;
+    border: 1px solid #333333;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.manual-card:hover {
+    background: #1a1a1a;
+    border-color: #fede00;
+    transform: translateY(-2px);
+}
+
+.manual-card strong {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    color: #fffef7;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #fede00;
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #e6ca00;
+    transform: translateY(-1px);
+}
+
+footer {
+    background: #000000;
+    color: #cccccc;
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 0.9rem;
+    margin-top: 4rem;
+    border-top: 1px solid #333333;
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+}
+
+.intro-box {
+    background: #111111;
+    border-left: 4px solid #fede00;
+    padding: 3rem;
+    margin: 3rem 0;
+    border-radius: 0;
+}
+
+.intro-box h2 {
+    margin-top: 0;
+    color: #fffef7;
+}
+
+.intro-box p {
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+    color: #cccccc;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.popos-note {
+    background: #1a1a1a;
+    border-left: 4px solid #fede00;
+    color: #cccccc;
+    margin: 2rem 0;
+    padding: 2rem;
+    font-style: italic;
+    border-radius: 0;
+}
+
+.popos-note strong {
+    color: #fede00;
+    font-weight: bold;
+}
+
+.about-section {
+    margin: 3rem 0;
+    padding: 2rem 0;
+    border-bottom: 1px solid #222222;
+}
+
+.about-section:last-child {
+    border-bottom: none;
+}
+
+.about-section h3 {
+    color: #fede00;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.about-section p {
+    color: #fffef7;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.about-section li {
+    color: #fffef7;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: #111111;
+    border-left: 3px solid #333333;
+    line-height: 1.8;
+    transition: all 0.3s ease;
+}
+
+.about-section li:hover {
+    border-left-color: #fede00;
+    background: #1a1a1a;
+}
+
+.about-section strong {
+    color: #fede00;
+    font-weight: 600;
+}
+
+.timeline-simple {
+    padding: 3rem;
+    background: #111111;
+    border: 1px dashed #333333;
+}
+
+.timeline-item {
+    margin: 2rem 0;
+    padding-left: 2rem;
+    color: #fffef7;
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+}
+
+.counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #000000;
+    color: #fede00;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.8rem;
+    border: 1px solid #fede00;
+    font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
     .container {
-        max-width: 100%;
+        width: 95%;
     }
 
-    .shelf {
-        overflow-x: auto;
-        padding: 20px 16px;
+    nav a {
+        margin: 0 1rem 0 0;
+        font-size: 1rem;
     }
 
-    .book {
-        width: 75px;
-        height: 130px;
+    .content {
+        width: 90%;
     }
 
-    .book-title {
-        font-size: 10px;
-    }
-
-    .book-date {
-        font-size: 9px;
-    }
-
-    .manual-list {
+    .manual-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .popo {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
+    .retro-item {
+        padding: 1.5rem;
+    }
+
+    .counter {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    nav {
+        padding: 1rem 0;
+    }
+
+    .language-toggle {
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
     }
 }
