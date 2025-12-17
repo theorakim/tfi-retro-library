@@ -173,7 +173,3 @@ git push origin main
 
 - **Email**: taylor.7@kakaoimpact.org
 - **Repository**: [github.com/theorakim/tfi-retro-library](https://github.com/theorakim/tfi-retro-library)
-
----
-
-*"회고는 팀이 함께 성장하는 가장 좋은 방법입니다."*
