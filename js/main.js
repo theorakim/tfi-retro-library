@@ -64,11 +64,18 @@ const books = {
         link: 'retro-pages/together.html'
     },
     10: {
-        title: '⭐ 서로 돌아보기',
+        title: '서로 돌아보기',
         date: '2025년 10월',
         participants: '5명 참석',
         method: '상호 피드백 회고',
         link: 'retros/2025oct.html'
+    },
+    11: {
+        title: '연말 회고',
+        date: '2025년 12월',
+        participants: '5명 참석',
+        method: '한 해를 마무리하며',
+        link: 'retros/2025_year_end_retrospective.html'
     }
 };
 
@@ -140,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
-        const allBooks = document.querySelectorAll('.book');
+        const allBooks = document.querySelectorAll('.archive-item');
 
         allBooks.forEach(book => {
             const bookId = book.getAttribute('data-id');

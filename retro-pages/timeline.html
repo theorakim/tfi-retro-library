@@ -3,65 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>타임라인 회고 - 테크포임팩트 회고 아카이브</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>타임라인 회고 - TFI Retrospective Archive</title>
+    <link rel="stylesheet" href="../css/modern-archive.css">
 </head>
-<body data-lang="ko">
-    <div class="container">
-        <header>
-            <button class="language-toggle" onclick="toggleLanguage()">
-                <span id="lang-toggle-text">EN</span>
-            </button>
-            <h1 data-ko="Team Tech for Impact" data-en="Team Tech for Impact">Team Tech for Impact</h1>
-            <div class="subtitle" data-ko="A Magazine Curated by Popo | Est. November 2024" data-en="A Magazine Curated by Popo | Est. November 2024">A Magazine Curated by Popo | Est. November 2024</div>
-        </header>
-
-        <nav>
-            <a href="../index.html" class="nav-link" data-ko="회고들" data-en="Issues">회고들</a>
-            <a href="../popos-notes.html" class="nav-link" data-ko="포포의 노트" data-en="Popo's Notes">포포의 노트</a>
-            <a href="../manuals.html" class="nav-link" data-ko="매뉴얼" data-en="Manuals">매뉴얼</a>
-            <a href="../about.html" class="nav-link" data-ko="소개" data-en="About">소개</a>
-        </nav>
-
-        <div class="content">
-            <a href="../index.html" class="back-link" data-ko="← 회고들로 돌아가기" data-en="← Back to Issues">← 회고들로 돌아가기</a>
-
-            <div class="retro-detail">
-                <h2 data-ko="타임라인 회고" data-en="Timeline Retrospective">타임라인 회고</h2>
-                <p><strong data-ko="일자:" data-en="Date:">일자:</strong> <span data-ko="2024.11" data-en="November 2024">2024.11</span><br>
-                <strong data-ko="참석자:" data-en="Participants:">참석자:</strong> <span data-ko="조이, 다니, 테일러 (3명)" data-en="Joy, Dani, Taylor (3 members)">조이, 다니, 테일러 (3명)</span></p>
-
-                <h3 style="margin-top: 20px;" data-ko="설명" data-en="Description">설명</h3>
-                <p data-ko="시간 순서대로 주요 이벤트를 나열하고 돌아보는 방식입니다." data-en="A method of listing and reflecting on major events in chronological order.">시간 순서대로 주요 이벤트를 나열하고 돌아보는 방식입니다.</p>
-
-                <h3 style="margin-top: 20px;" data-ko="적합한 상황" data-en="Suitable Situations">적합한 상황</h3>
-                <p data-ko="시간 순서가 중요한 경우, 전반적인 회고, 중요 이벤트가 많은 경우" data-en="When chronological order matters, general retrospectives, many important events">시간 순서가 중요한 경우, 전반적인 회고, 중요 이벤트가 많은 경우</p>
-
-                <h3 style="margin-top: 20px;" data-ko="적합한 주기" data-en="Suitable Frequency">적합한 주기</h3>
-                <p data-ko="월간, 프로젝트 단위" data-en="Monthly, Per project">월간, 프로젝트 단위</p>
-
-                <div class="popos-note" style="margin-top: 20px;">
-                    <strong data-ko="포포의 메모:" data-en="Popo's Note:">포포의 메모:</strong><br>
-                    <span data-ko="첫 회고! \"회고 중독자\" 탄생의 순간" data-en="First retrospective! The moment \"retrospective addicts\" were born">첫 회고! "회고 중독자" 탄생의 순간</span>
-                </div>
-
-                <p style="margin-top: 20px;">
-                    <a href="../manual-detail.html?file=타임라인 회고 1606b834ddda8009b72cd591acdb53ce.md" class="download-btn" data-ko="이 회고 매뉴얼 보기" data-en="View Manual">이 회고 매뉴얼 보기</a>
-                </p>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="site-title">
+                <h1>TFI Retrospective Archive</h1>
+                <div class="site-subtitle">Team Tech for Impact · Curated by Popo</div>
             </div>
+            <nav class="site-nav">
+                <a href="../index.html" class="nav-link">Archive</a>
+                <a href="../manuals.html" class="nav-link">Manuals</a>
+                <a href="../popo.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container-narrow section">
+        <div style="margin-bottom: var(--space-8);">
+            <a href="../index.html" class="btn btn-ghost"><span>←</span><span>아카이브로 돌아가기</span></a>
         </div>
 
-        <footer>
-            <strong data-ko="Team Tech for Impact Magazine" data-en="Team Tech for Impact Magazine">Team Tech for Impact Magazine</strong><br>
-            <span data-ko="포포 큐레이팅 | 테일러 편집" data-en="Curated by Popo | Editorial Direction by Taylor">포포 큐레이팅 | 테일러 편집</span><br>
-            © 2025 Kakao Impact
-        </footer>
-    </div>
+        <header style="margin-bottom: var(--space-12); padding-bottom: var(--space-8); border-bottom: 1px solid var(--color-border);">
+            <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">NOV 2024</div>
+            <h1 style="margin-bottom: var(--space-4);">타임라인 회고</h1>
+            <p class="text-secondary" style="font-size: var(--text-lg); line-height: 1.6; margin-bottom: var(--space-6);">
+                시간 순서에 따라 주요 사건과 경험을 돌아보는 시각적 회고 방법입니다.
+            </p>
+            <div class="flex gap-6" style="flex-wrap: wrap;">
+                <div>
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-1);">PARTICIPANTS</div>
+                    <div class="text-secondary">조이, 다니, 테일러 (3명)</div>
+                </div>
+                <div>
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-1);">TYPE</div>
+                    <div class="text-secondary">Chronological</div>
+                </div>
+            </div>
+        </header>
 
-    <div class="counter">
-        VISITORS: <span id="visitor-count">000000</span>
-    </div>
+        <article>
+            <section style="margin-bottom: var(--space-12);">
+                <h3 style="margin-bottom: var(--space-4);">설명</h3>
+                <p class="text-secondary" style="line-height: 1.7;">
+                    팀의 여정을 시간 축을 따라 시각화하는 회고 방식입니다. 프로젝트나 스프린트 기간 동안의 중요한 순간들을 타임라인에 배치하면서, 각 시점의 감정과 배움을 함께 기록합니다. 전체적인 흐름을 한눈에 파악할 수 있어 패턴과 인사이트를 발견하기 좋습니다.
+                </p>
+            </section>
 
-    <script src="../js/main.js"></script>
+            <section style="margin-bottom: var(--space-12);">
+                <h3 style="margin-bottom: var(--space-4);">적합한 상황</h3>
+                <div class="card surface-elevated">
+                    <ul style="list-style: none;">
+                        <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: var(--space-3);">
+                            <span style="color: var(--color-accent);">•</span>
+                            <span class="text-secondary">긴 프로젝트나 분기 회고에 적합</span>
+                        </li>
+                        <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: var(--space-3);">
+                            <span style="color: var(--color-accent);">•</span>
+                            <span class="text-secondary">변화가 많았던 기간을 정리할 때</span>
+                        </li>
+                        <li style="padding: var(--space-3) 0; display: flex; align-items: center; gap: var(--space-3);">
+                            <span style="color: var(--color-accent);">•</span>
+                            <span class="text-secondary">팀의 여정을 시각적으로 공유하고 싶을 때</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section style="margin-bottom: var(--space-12);">
+                <div class="card" style="background: var(--color-accent-subtle); border-color: var(--color-accent-subtle);">
+                    <div class="mono text-accent" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">🐰 POPO'S NOTE</div>
+                    <p class="text-secondary">첫 회고였습니다! "회고 중독자" 탄생의 순간. 타임라인을 그리면서 자연스럽게 대화가 시작되었고, 각자 기억하는 중요한 순간들이 달라서 흥미로웠습니다.</p>
+                </div>
+            </section>
+
+            <section style="margin-bottom: var(--space-12);">
+                <div class="flex gap-4" style="flex-wrap: wrap;">
+                    <a href="../manual-detail.html?file=timeline-retrospective.md" class="btn btn-primary"><span>📖</span><span>매뉴얼 보기</span></a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <strong>Team Tech for Impact Retrospective Archive</strong>
+            <p class="mono" style="font-size: var(--text-xs); margin-top: var(--space-2);">CURATED BY POPO · EDITORIAL DIRECTION BY TAYLOR</p>
+            <p style="margin-top: var(--space-4);">© 2024-2025 Kakao Impact</p>
+        </div>
+    </footer>
+
+    <div class="fab" onclick="window.location.href='../popo.html'">🐰</div>
 </body>
 </html>

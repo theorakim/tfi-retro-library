@@ -3,95 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>매뉴얼 - 테크포임팩트 회고 아카이브</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Manuals - TFI Retrospective Archive</title>
+    <link rel="stylesheet" href="css/modern-archive.css">
 </head>
-<body data-lang="ko">
-    <div class="container">
-        <header>
-            <button class="language-toggle" onclick="toggleLanguage()">
-                <span id="lang-toggle-text">EN</span>
-            </button>
-            <h1 data-ko="Team Tech for Impact" data-en="Team Tech for Impact">Team Tech for Impact</h1>
-            <div class="subtitle" data-ko="A Magazine Curated by Popo | Est. November 2024" data-en="A Magazine Curated by Popo | Est. November 2024">A Magazine Curated by Popo | Est. November 2024</div>
-        </header>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-title">
+                <h1>TFI Retrospective Archive</h1>
+                <div class="site-subtitle">Team Tech for Impact · Curated by Popo</div>
+            </div>
+            <nav class="site-nav">
+                <a href="index.html" class="nav-link">Archive</a>
+                <a href="manuals.html" class="nav-link active">Manuals</a>
+                <a href="popo.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
 
-        <nav>
-            <a href="index.html" class="nav-link" data-ko="회고들" data-en="Issues">회고들</a>
-            <a href="popos-notes.html" class="nav-link" data-ko="포포의 노트" data-en="Popo's Notes">포포의 노트</a>
-            <a href="manuals.html" class="nav-link active" data-ko="매뉴얼" data-en="Manuals">매뉴얼</a>
-            <a href="about.html" class="nav-link" data-ko="소개" data-en="About">소개</a>
-        </nav>
+    <!-- Main Content -->
+    <main class="container section">
+        <!-- Page Title -->
+        <div style="max-width: 720px; margin-bottom: var(--space-12);">
+            <h2 style="margin-bottom: var(--space-4);">Retrospective Manuals</h2>
+            <p class="text-secondary" style="font-size: var(--text-base); line-height: 1.7;">
+                팀에서 실제로 사용한 회고 매뉴얼들입니다. 각 회고 방법론의 상세한 가이드를 확인하세요.
+            </p>
+        </div>
 
-        <div class="content">
-            <h2 data-ko="매뉴얼" data-en="Manuals">매뉴얼</h2>
-
-            <div class="intro-box">
-                <p data-ko="팀에서 실제로 사용한 회고 매뉴얼들입니다.<br>각 회고 방법론의 상세한 가이드를 확인하세요." data-en="Retrospective manuals actually used by our team.<br>Check detailed guides for each retrospective methodology.">팀에서 실제로 사용한 회고 매뉴얼들입니다.<br>각 회고 방법론의 상세한 가이드를 확인하세요.</p>
+        <!-- Manuals Grid -->
+        <div class="grid grid-3">
+            <!-- 4L -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=4l-retrospective.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    FRAMEWORK
+                </div>
+                <h3 style="margin-bottom: var(--space-3);">4L 회고</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    좋았던 것, 배운 것, 부족한 것, 바라는 것
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Liked</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Learned</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Lacked</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Longed for</span>
+                </div>
             </div>
 
-            <div class="manual-grid">
-                <div class="manual-item">
-                    <h3 data-ko="4L 회고" data-en="4L Retrospective">4L 회고</h3>
-                    <p data-ko="좋았던 것, 배운 것, 부족한 것, 바라는 것" data-en="Liked, Learned, Lacked, Longed for">좋았던 것, 배운 것, 부족한 것, 바라는 것</p>
-                    <a href="manual-detail.html?file=4L 회고 1606b834ddda80d39cf5d773ec86c440.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+            <!-- KPT+ -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=kpt-plus-retrospective.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    FRAMEWORK
                 </div>
-
-                <div class="manual-item">
-                    <h3 data-ko="KPT+ 회고" data-en="KPT+ Retrospective">KPT+ 회고</h3>
-                    <p data-ko="감사와 지속, 도전과 배움, 함께 성장" data-en="Keep, Problem, Try Plus">감사와 지속, 도전과 배움, 함께 성장</p>
-                    <a href="manual-detail.html?file=KPT+ 1826b834ddda803ca696d6bc70970336.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+                <h3 style="margin-bottom: var(--space-3);">KPT+ 회고</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    감사와 지속, 도전과 배움, 함께 성장
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Keep</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Problem</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Try</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Plus</span>
                 </div>
+            </div>
 
-                <div class="manual-item">
-                    <h3 data-ko="따로 또 같이" data-en="Together Apart">따로 또 같이</h3>
-                    <p data-ko="팀 맞춤 회고 방법론" data-en="Custom team retrospective methodology">팀 맞춤 회고 방법론</p>
-                    <a href="manual-detail.html?file=따로 또 같이 27d6b834ddda802cbf31db3757e7b2e0.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+            <!-- 따로 또 같이 -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=together-apart.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    CUSTOM
                 </div>
-
-                <div class="manual-item">
-                    <h3 data-ko="사업별 회고" data-en="Business Unit Retrospective">사업별 회고</h3>
-                    <p data-ko="체계적 사업 단위 회고" data-en="Systematic business unit retrospective">체계적 사업 단위 회고</p>
-                    <a href="manual-detail.html?file=사업별 회고 2416b834ddda80fc92fdca7e78ce87b4.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+                <h3 style="margin-bottom: var(--space-3);">따로 또 같이</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    팀 맞춤 회고 방법론
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Individual</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Team</span>
                 </div>
+            </div>
 
-                <div class="manual-item">
-                    <h3 data-ko="임팩트 여정맵 회고" data-en="Impact Journey Map">임팩트 여정맵 회고</h3>
-                    <p data-ko="시각적 여정 중심 회고" data-en="Visual journey-based retrospective">시각적 여정 중심 회고</p>
-                    <a href="manual-detail.html?file=임팩트 여정맵 회고 1c26b834ddda809ba2a7ec5adc7f04b4.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+            <!-- 사업별 회고 -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=business-retrospective.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    STRUCTURED
                 </div>
-
-                <div class="manual-item">
-                    <h3 data-ko="타임라인 회고" data-en="Timeline Retrospective">타임라인 회고</h3>
-                    <p data-ko="시간 순서 기반 회고" data-en="Chronological retrospective">시간 순서 기반 회고</p>
-                    <a href="manual-detail.html?file=타임라인 회고 1606b834ddda8009b72cd591acdb53ce.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+                <h3 style="margin-bottom: var(--space-3);">사업별 회고</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    체계적 사업 단위 회고
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Business Unit</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Workshop</span>
                 </div>
+            </div>
 
-                <div class="manual-item">
-                    <h3 data-ko="마무리와 시작 회고" data-en="Endings and Beginnings">마무리와 시작 회고</h3>
-                    <p data-ko="전환점 중심 회고" data-en="Transition-focused retrospective">전환점 중심 회고</p>
-                    <a href="manual-detail.html?file=마무리와 시작 회고 2016b834ddda80b29772e6e1a17153c2.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+            <!-- 임팩트 여정맵 -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=impact-journey-map.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    VISUAL
                 </div>
+                <h3 style="margin-bottom: var(--space-3);">임팩트 여정맵 회고</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    시각적 여정 중심 회고
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Journey Map</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Impact</span>
+                </div>
+            </div>
 
-                <div class="manual-item">
-                    <h3 data-ko="히어로즈 저니 회고" data-en="Hero's Journey">히어로즈 저니 회고</h3>
-                    <p data-ko="스토리텔링 기반 회고" data-en="Narrative-based retrospective">스토리텔링 기반 회고</p>
-                    <a href="manual-detail.html?file=히어로즈저니회고 1a66b834ddda80ca8e50ed159bc7b35d.md" class="download-btn" data-ko="매뉴얼 보기" data-en="View Manual">매뉴얼 보기</a>
+            <!-- 타임라인 회고 -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=timeline-retrospective.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    CHRONOLOGICAL
+                </div>
+                <h3 style="margin-bottom: var(--space-3);">타임라인 회고</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    시간 순서 기반 회고
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Timeline</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Events</span>
+                </div>
+            </div>
+
+            <!-- 마무리와 시작 -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=endings-and-beginnings.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    TRANSITION
+                </div>
+                <h3 style="margin-bottom: var(--space-3);">마무리와 시작 회고</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    전환점 중심 회고
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Endings</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Beginnings</span>
+                </div>
+            </div>
+
+            <!-- 히어로즈 저니 -->
+            <div class="card card-interactive" onclick="window.location.href='manual-detail.html?file=heros-journey.md'">
+                <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                    NARRATIVE
+                </div>
+                <h3 style="margin-bottom: var(--space-3);">히어로즈 저니 회고</h3>
+                <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: var(--space-4);">
+                    스토리텔링 기반 회고
+                </p>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Hero's Journey</span>
+                    <span class="mono" style="font-size: var(--text-xs); padding: var(--space-1) var(--space-2); background: var(--color-accent-subtle); border-radius: var(--radius-sm);">Story</span>
                 </div>
             </div>
         </div>
 
-        <footer>
-            <strong data-ko="Team Tech for Impact Magazine" data-en="Team Tech for Impact Magazine">Team Tech for Impact Magazine</strong><br>
-            <span data-ko="포포 큐레이팅 | 테일러 편집" data-en="Curated by Popo | Editorial Direction by Taylor">포포 큐레이팅 | 테일러 편집</span><br>
-            © 2025 Kakao Impact
-        </footer>
-    </div>
+        <!-- Back Link -->
+        <div style="margin-top: var(--space-12);">
+            <a href="index.html" class="btn btn-ghost">
+                <span>←</span>
+                <span>아카이브로 돌아가기</span>
+            </a>
+        </div>
+    </main>
 
-    <div class="counter">
-        VISITORS: <span id="visitor-count">000000</span>
-    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <strong>Team Tech for Impact Retrospective Archive</strong>
+            <p class="mono" style="font-size: var(--text-xs); margin-top: var(--space-2);">
+                CURATED BY POPO · EDITORIAL DIRECTION BY TAYLOR
+            </p>
+            <p style="margin-top: var(--space-4);">© 2024-2025 Kakao Impact</p>
+        </div>
+    </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Popo FAB -->
+    <div class="fab" onclick="window.location.href='popo.html'" title="포포와 아카이브 소개">
+        🐰
+    </div>
 </body>
 </html>

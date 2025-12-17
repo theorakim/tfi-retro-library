@@ -3,195 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>매뉴얼 상세 - 테크포임팩트 회고 아카이브</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Manual - TFI Retrospective Archive</title>
+    <link rel="stylesheet" href="css/modern-archive.css">
     <style>
-        /* 마크다운 콘텐츠 스타일 */
+        /* Markdown Content Styles */
         .markdown-content {
-            background: #111111;
-            border: 1px solid #333333;
-            padding: 3rem;
-            margin: 2rem 0;
-            color: #fffef7;
+            background: var(--color-surface);
+            padding: var(--space-8);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
         }
 
         .markdown-content h1 {
-            font-size: 2.5rem;
-            color: #fffef7;
-            margin: 2rem 0 1.5rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #fede00;
-            text-align: left;
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin: var(--space-8) 0 var(--space-6) 0;
+            padding-bottom: var(--space-4);
+            border-bottom: 2px solid var(--color-accent);
+            letter-spacing: -0.03em;
+        }
+
+        .markdown-content h1:first-child {
+            margin-top: 0;
         }
 
         .markdown-content h2 {
-            font-size: 2rem;
-            color: #fffef7;
-            margin: 2rem 0 1rem 0;
-            text-align: left;
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin: var(--space-8) 0 var(--space-4) 0;
+            letter-spacing: -0.02em;
         }
 
         .markdown-content h3 {
-            font-size: 1.5rem;
-            color: #fede00;
-            margin: 1.5rem 0 1rem 0;
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--color-accent);
+            margin: var(--space-6) 0 var(--space-3) 0;
         }
 
         .markdown-content h4 {
-            font-size: 1.2rem;
-            color: #fffef7;
-            margin: 1.2rem 0 0.8rem 0;
+            font-size: var(--text-lg);
+            font-weight: 500;
+            color: var(--color-text-primary);
+            margin: var(--space-4) 0 var(--space-2) 0;
         }
 
         .markdown-content p {
-            color: #fffef7;
-            margin: 1rem 0;
+            color: var(--color-text-secondary);
+            margin: var(--space-4) 0;
             line-height: 1.8;
         }
 
         .markdown-content ul,
         .markdown-content ol {
-            color: #fffef7;
-            margin: 1rem 0;
-            padding-left: 2rem;
+            color: var(--color-text-secondary);
+            margin: var(--space-4) 0;
+            padding-left: var(--space-8);
         }
 
         .markdown-content li {
-            color: #fffef7;
-            margin: 0.5rem 0;
-            line-height: 1.6;
+            margin: var(--space-2) 0;
+            line-height: 1.7;
+        }
+
+        .markdown-content li::marker {
+            color: var(--color-accent);
         }
 
         .markdown-content strong {
-            color: #fede00;
+            color: var(--color-text-primary);
             font-weight: 600;
         }
 
         .markdown-content em {
-            color: #cccccc;
+            color: var(--color-text-secondary);
             font-style: italic;
         }
 
         .markdown-content code {
-            background: #000000;
-            color: #fede00;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
+            background: var(--color-surface-elevated);
+            color: var(--color-accent);
+            padding: 0.2em 0.4em;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            border: 1px solid var(--color-border);
         }
 
         .markdown-content pre {
-            background: #000000;
-            border: 1px solid #333333;
-            padding: 1rem;
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-6);
             overflow-x: auto;
-            margin: 1rem 0;
+            margin: var(--space-6) 0;
         }
 
         .markdown-content pre code {
             background: none;
             padding: 0;
+            border: none;
+            color: var(--color-text-primary);
         }
 
         .markdown-content blockquote {
-            border-left: 4px solid #fede00;
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
-            color: #cccccc;
+            border-left: 3px solid var(--color-accent);
+            padding-left: var(--space-6);
+            margin: var(--space-6) 0;
+            color: var(--color-text-secondary);
             font-style: italic;
         }
 
         .markdown-content hr {
             border: none;
-            border-top: 1px solid #333333;
-            margin: 2rem 0;
+            border-top: 1px solid var(--color-border);
+            margin: var(--space-8) 0;
         }
 
         .markdown-content table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.5rem 0;
+            margin: var(--space-6) 0;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
         }
 
         .markdown-content th,
         .markdown-content td {
-            border: 1px solid #333333;
-            padding: 0.8rem;
+            border: 1px solid var(--color-border);
+            padding: var(--space-3) var(--space-4);
             text-align: left;
-            color: #fffef7;
+            color: var(--color-text-secondary);
         }
 
         .markdown-content th {
-            background: #1a1a1a;
-            color: #fede00;
+            background: var(--color-surface-elevated);
+            color: var(--color-text-primary);
             font-weight: 600;
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .markdown-content a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent-subtle);
+            text-underline-offset: 2px;
+            transition: all var(--transition-fast);
+        }
+
+        .markdown-content a:hover {
+            color: var(--color-accent-bright);
+            text-decoration-color: var(--color-accent);
         }
 
         .loading {
             text-align: center;
-            padding: 3rem;
-            color: #cccccc;
-            font-style: italic;
+            padding: var(--space-12);
+            color: var(--color-text-tertiary);
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
         }
 
         .error {
-            background: #1a1a1a;
-            border: 1px solid #ff4444;
-            padding: 2rem;
-            margin: 2rem 0;
-            color: #ff4444;
-            text-align: center;
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border-strong);
+            border-left: 4px solid var(--color-accent);
+            padding: var(--space-8);
+            margin: var(--space-8) 0;
+            color: var(--color-text-primary);
+            border-radius: var(--radius-md);
+        }
+
+        .error strong {
+            display: block;
+            margin-bottom: var(--space-2);
+            color: var(--color-accent);
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
-<body data-lang="ko">
-    <div class="container">
-        <header>
-            <button class="language-toggle" onclick="toggleLanguage()">
-                <span id="lang-toggle-text">EN</span>
-            </button>
-            <h1 data-ko="Team Tech for Impact" data-en="Team Tech for Impact">Team Tech for Impact</h1>
-            <div class="subtitle" data-ko="A Magazine Curated by Popo | Est. November 2024" data-en="A Magazine Curated by Popo | Est. November 2024">A Magazine Curated by Popo | Est. November 2024</div>
-        </header>
-
-        <nav>
-            <a href="index.html" class="nav-link" data-ko="회고들" data-en="Issues">회고들</a>
-            <a href="popos-notes.html" class="nav-link" data-ko="포포의 노트" data-en="Popo's Notes">포포의 노트</a>
-            <a href="manuals.html" class="nav-link active" data-ko="매뉴얼" data-en="Manuals">매뉴얼</a>
-            <a href="about.html" class="nav-link" data-ko="소개" data-en="About">소개</a>
-        </nav>
-
-        <div class="content">
-            <a href="manuals.html" class="back-link" data-ko="← 매뉴얼 목록으로" data-en="← Back to Manuals">← 매뉴얼 목록으로</a>
-
-            <div id="manual-content" class="markdown-content">
-                <div class="loading" data-ko="매뉴얼을 불러오는 중..." data-en="Loading manual...">매뉴얼을 불러오는 중...</div>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-title">
+                <h1>TFI Retrospective Archive</h1>
+                <div class="site-subtitle">Team Tech for Impact · Curated by Popo</div>
             </div>
+            <nav class="site-nav">
+                <a href="index.html" class="nav-link">Archive</a>
+                <a href="manuals.html" class="nav-link active">Manuals</a>
+                <a href="popo.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-narrow section">
+        <!-- Back Link -->
+        <div style="margin-bottom: var(--space-8);">
+            <a href="manuals.html" class="btn btn-ghost">
+                <span>←</span>
+                <span>매뉴얼 목록으로</span>
+            </a>
         </div>
 
-        <footer>
-            <strong data-ko="Team Tech for Impact Magazine" data-en="Team Tech for Impact Magazine">Team Tech for Impact Magazine</strong><br>
-            <span data-ko="포포 큐레이팅 | 테일러 편집" data-en="Curated by Popo | Editorial Direction by Taylor">포포 큐레이팅 | 테일러 편집</span><br>
-            © 2025 Kakao Impact
-        </footer>
+        <!-- Manual Content -->
+        <div id="manual-content" class="markdown-content">
+            <div class="loading">Loading manual...</div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <strong>Team Tech for Impact Retrospective Archive</strong>
+            <p class="mono" style="font-size: var(--text-xs); margin-top: var(--space-2);">
+                CURATED BY POPO · EDITORIAL DIRECTION BY TAYLOR
+            </p>
+            <p style="margin-top: var(--space-4);">© 2024-2025 Kakao Impact</p>
+        </div>
+    </footer>
+
+    <!-- Popo FAB -->
+    <div class="fab" onclick="window.location.href='manuals.html'" title="매뉴얼 목록으로">
+        📖
     </div>
 
-    <div class="counter">
-        VISITORS: <span id="visitor-count">000000</span>
-    </div>
-
-    <script src="js/main.js"></script>
     <script>
-        // URL에서 파일 이름 가져오기
+        // Get filename from URL
         const urlParams = new URLSearchParams(window.location.search);
         const fileName = urlParams.get('file');
 
         if (!fileName) {
             document.getElementById('manual-content').innerHTML =
-                '<div class="error">매뉴얼 파일을 찾을 수 없습니다.</div>';
+                '<div class="error"><strong>오류</strong>매뉴얼 파일을 찾을 수 없습니다. URL에 파일 이름이 지정되어 있는지 확인해주세요.</div>';
         } else {
-            // 마크다운 파일 로드 및 렌더링
+            // Load and render markdown file
             fetch(`method/${fileName}`)
                 .then(response => {
                     if (!response.ok) {
@@ -200,20 +253,26 @@
                     return response.text();
                 })
                 .then(markdown => {
-                    // marked 라이브러리 설정
+                    // Configure marked library
                     marked.setOptions({
                         breaks: true,
                         gfm: true
                     });
 
-                    // 마크다운을 HTML로 변환
+                    // Convert markdown to HTML
                     const html = marked.parse(markdown);
                     document.getElementById('manual-content').innerHTML = html;
+
+                    // Update page title with manual name
+                    const firstH1 = document.querySelector('.markdown-content h1');
+                    if (firstH1) {
+                        document.title = `${firstH1.textContent} - TFI Retrospective Archive`;
+                    }
                 })
                 .catch(error => {
                     console.error('Error loading manual:', error);
                     document.getElementById('manual-content').innerHTML =
-                        `<div class="error">매뉴얼을 불러오는 중 오류가 발생했습니다: ${error.message}</div>`;
+                        `<div class="error"><strong>오류</strong>매뉴얼을 불러오는 중 오류가 발생했습니다: ${error.message}<br><br>파일 경로: method/${fileName}</div>`;
                 });
         }
     </script>

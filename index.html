@@ -3,149 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>테크포임팩트 도서관 | 회고 아카이브</title>
-    <link rel="stylesheet" href="css/library-style.css">
+    <title>TFI Retrospective Archive</title>
+    <link rel="stylesheet" href="css/modern-archive.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="library-title">📚 Team Tech for Impact 도서관</div>
-            <div class="library-subtitle">포포가 큐레이팅한 회고 아카이브</div>
-        </header>
-
-        <div class="controls">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="회고 검색...">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-title">
+                <h1>TFI Retrospective Archive</h1>
+                <div class="site-subtitle">Team Tech for Impact · Curated by Popo</div>
             </div>
-            <button class="random-btn" onclick="randomBook()">🎲 랜덤 뽑기</button>
+            <nav class="site-nav">
+                <a href="index.html" class="nav-link active">Archive</a>
+                <a href="manuals.html" class="nav-link">Manuals</a>
+                <a href="popo.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container section">
+        <!-- Controls -->
+        <div class="flex items-center justify-between gap-4 mb-8">
+            <div style="flex: 1; max-width: 480px;">
+                <input type="search" id="searchInput" placeholder="회고 검색..." />
+            </div>
+            <button class="btn btn-secondary" onclick="randomBook()">
+                <span>Random</span>
+                <span>🎲</span>
+            </button>
         </div>
 
-        <div class="shelves">
-            <!-- 2024년 책장 -->
-            <div class="shelf-section">
-                <div class="shelf-year">2024</div>
-                <div class="shelf">
-                    <div class="book" data-id="1" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">타임라인 회고</div>
-                            <div class="book-date">2024.11</div>
-                        </div>
+        <!-- 2024 Archive -->
+        <section class="archive-section">
+            <div class="archive-year">2024</div>
+            <div class="archive-grid">
+                <div class="archive-item card-interactive" data-id="1" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Nov 2024</div>
+                    <h3 class="archive-item-title">타임라인 회고</h3>
+                    <p class="archive-item-desc">시간 순서 기반 회고 · 3명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="2" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Dec 2024</div>
+                    <h3 class="archive-item-title">4L 회고</h3>
+                    <p class="archive-item-desc">첫 구조화된 접근 · 3명 참석</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2025 Archive -->
+        <section class="archive-section">
+            <div class="archive-year">2025</div>
+            <div class="archive-grid">
+                <div class="archive-item card-interactive" data-id="3" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Jan 2025</div>
+                    <h3 class="archive-item-title">KPT+ 회고</h3>
+                    <p class="archive-item-desc">감사와 지속, 도전과 배움, 함께 성장 · 4명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="4" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Feb 2025</div>
+                    <h3 class="archive-item-title">히어로즈 저니</h3>
+                    <p class="archive-item-desc">스토리텔링 기반 회고 · 4명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="5" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Mar 2025</div>
+                    <h3 class="archive-item-title">임팩트 여정맵</h3>
+                    <p class="archive-item-desc">시각적 여정 중심 회고 · 3명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="6" onclick="selectBook(this)">
+                    <div class="archive-item-meta">May 2025</div>
+                    <h3 class="archive-item-title">마무리와 시작</h3>
+                    <p class="archive-item-desc">전환점 중심 회고 · 3명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="7" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Jun 2025</div>
+                    <h3 class="archive-item-title">4L 회고: 2nd Edition</h3>
+                    <p class="archive-item-desc">좋았던 것, 배운 것, 부족한 것, 바라는 것 · 5명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="8" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Jul, Sep 2025</div>
+                    <h3 class="archive-item-title">사업별 회고</h3>
+                    <p class="archive-item-desc">2회 진행(워크샵 포함) · 5명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="9" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Sep 2025</div>
+                    <h3 class="archive-item-title">따로 또 같이</h3>
+                    <p class="archive-item-desc">팀 맞춤 회고 · 5명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="10" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Oct 2025</div>
+                    <h3 class="archive-item-title">서로 돌아보기</h3>
+                    <p class="archive-item-desc">상호 피드백 회고 · 5명 참석</p>
+                </div>
+                <div class="archive-item card-interactive" data-id="11" onclick="selectBook(this)">
+                    <div class="archive-item-meta">Dec 2025</div>
+                    <h3 class="archive-item-title">연말 회고</h3>
+                    <p class="archive-item-desc">한 해를 마무리하며 · 5명 참석</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2026 Archive -->
+        <section class="archive-section">
+            <div class="archive-year">2026</div>
+            <div class="card" style="padding: var(--space-16); text-align: center;">
+                <p class="mono text-tertiary" style="font-size: var(--text-sm);">COMING SOON...</p>
+            </div>
+        </section>
+
+        <!-- Manuals Drawer -->
+        <section class="archive-section">
+            <div class="card">
+                <div style="cursor: pointer; padding: var(--space-4); text-align: center;" onclick="toggleDrawer()">
+                    <div class="flex items-center justify-between">
+                        <span style="flex: 1; text-align: center; font-weight: 500;">
+                            📖 회고 매뉴얼 보기
+                        </span>
                     </div>
-                    <div class="book" data-id="2" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">4L 회고</div>
-                            <div class="book-date">2024.12</div>
-                        </div>
+                </div>
+                <div id="drawerContent" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+                    <div class="grid grid-4" style="padding: var(--space-6); padding-top: var(--space-8); border-top: 1px solid var(--color-border);">
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">4L 회고</a>
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">KPT+ 회고</a>
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">따로 또 같이</a>
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">사업별 회고</a>
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">임팩트 여정맵</a>
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">타임라인 회고</a>
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">마무리와 시작</a>
+                        <a href="manuals.html" class="btn btn-secondary" style="justify-content: center;">히어로즈 저니</a>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <!-- 2025년 책장 -->
-            <div class="shelf-section">
-                <div class="shelf-year">2025</div>
-                <div class="shelf">
-                    <div class="book" data-id="3" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">KPT+ 회고</div>
-                            <div class="book-date">2025.01</div>
-                        </div>
-                    </div>
-                    <div class="book" data-id="4" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">히어로즈 저니</div>
-                            <div class="book-date">2025.02</div>
-                        </div>
-                    </div>
-                    <div class="book" data-id="5" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">임팩트 여정맵</div>
-                            <div class="book-date">2025.03</div>
-                        </div>
-                    </div>
-                    <div class="book" data-id="6" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">마무리와 시작</div>
-                            <div class="book-date">2025.05</div>
-                        </div>
-                    </div>
-                    <div class="book" data-id="7" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">4L 회고 2차</div>
-                            <div class="book-date">2025.06</div>
-                        </div>
-                    </div>
-                    <div class="book" data-id="8" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">사업별 회고</div>
-                            <div class="book-date">2025.07-09</div>
-                        </div>
-                    </div>
-                    <div class="book" data-id="9" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">따로 또 같이</div>
-                            <div class="book-date">2025.09</div>
-                        </div>
-                    </div>
-                    <div class="book" data-id="10" onclick="selectBook(this)">
-                        <div class="book-spine">
-                            <div class="book-title">서로 돌아보기</div>
-                            <div class="book-date">2025.10</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2026년 책장 -->
-            <div class="shelf-section">
-                <div class="shelf-year">2026</div>
-                <div class="shelf coming-soon">
-                    <div class="coming-soon-text">Coming Soon...</div>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <strong>Team Tech for Impact Retrospective Archive</strong>
+            <p class="mono" style="font-size: var(--text-xs); margin-top: var(--space-2);">
+                CURATED BY POPO · EDITORIAL DIRECTION BY TAYLOR
+            </p>
+            <p style="margin-top: var(--space-4);">© 2024-2025 Kakao Impact</p>
         </div>
+    </footer>
 
-        <!-- 서랍 (매뉴얼) -->
-        <div class="drawer">
-            <div class="drawer-handle" onclick="toggleDrawer()">
-                📖 매뉴얼 보기
-            </div>
-            <div class="drawer-content" id="drawerContent">
-                <div class="manual-list">
-                    <a href="manuals.html" class="manual-link">4L 회고</a>
-                    <a href="manuals.html" class="manual-link">KPT+ 회고</a>
-                    <a href="manuals.html" class="manual-link">따로 또 같이</a>
-                    <a href="manuals.html" class="manual-link">사업별 회고</a>
-                    <a href="manuals.html" class="manual-link">임팩트 여정맵</a>
-                    <a href="manuals.html" class="manual-link">타임라인 회고</a>
-                    <a href="manuals.html" class="manual-link">마무리와 시작</a>
-                    <a href="manuals.html" class="manual-link">히어로즈 저니</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 포포 -->
-        <div class="popo" onclick="window.location.href='popo.html'" title="포포와 아카이브 소개">
-            🐰
-        </div>
+    <!-- Popo FAB -->
+    <div class="fab" onclick="window.location.href='popo.html'" title="포포와 아카이브 소개">
+        🐰
     </div>
 
-    <!-- 책 상세 모달 -->
+    <!-- Modal -->
     <div class="modal" id="bookModal">
         <div class="modal-overlay" onclick="closeModal()"></div>
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">✕</button>
-            <div class="book-cover">
-                <div class="cover-title" id="coverTitle"></div>
-                <div class="cover-date" id="coverDate"></div>
-                <div class="cover-info">
-                    <div class="participants" id="coverParticipants"></div>
-                    <div class="method" id="coverMethod"></div>
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <div style="padding-right: var(--space-12);">
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-2);" id="coverDate"></div>
+                    <h2 style="margin-bottom: var(--space-3);" id="coverTitle"></h2>
+                    <p class="text-secondary" style="font-size: var(--text-sm);" id="coverParticipants"></p>
                 </div>
             </div>
-            <button class="open-btn" id="openBtn" onclick="openBook()">펼쳐보기 →</button>
+            <div class="modal-body">
+                <div class="card surface-elevated" style="margin-bottom: var(--space-6);">
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-2);">
+                        METHODOLOGY
+                    </div>
+                    <p id="coverMethod"></p>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="openBook()">
+                    <span>펼쳐보기</span>
+                    <span>→</span>
+                </button>
+            </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Drawer toggle animation
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawerContent');
+            if (drawer.style.maxHeight && drawer.style.maxHeight !== '0px') {
+                drawer.style.maxHeight = '0px';
+            } else {
+                drawer.style.maxHeight = drawer.scrollHeight + 'px';
+            }
+        }
+    </script>
 </body>
 </html>

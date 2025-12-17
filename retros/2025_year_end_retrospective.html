@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테크포임팩트 2025년 연말 회고</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #F9F9F7;
+            color: #2D3748;
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: #FFFFFF;
+            border-radius: 4px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid #D7CCC8;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2F4F4F;
+            padding-bottom: 20px;
+        }
+
+        .slide-number {
+            background: #2F4F4F;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .slide-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1A3C34;
+            margin-bottom: 8px;
+        }
+
+        .slide-subtitle {
+            font-size: 16px;
+            color: #4A5568;
+            font-weight: 400;
+        }
+
+        .intro-message {
+            background: #F7FAFC;
+            border-radius: 4px;
+            padding: 30px;
+            margin: 30px 0;
+            line-height: 1.8;
+            font-size: 15px;
+            color: #2D3748;
+        }
+
+        .intro-message p {
+            margin-bottom: 16px;
+        }
+
+        .intro-message strong {
+            color: #1A3C34;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: #ECEFF1;
+            border-left: 3px solid #2F4F4F;
+            border-radius: 4px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .highlight-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2F4F4F;
+            margin-bottom: 12px;
+        }
+
+        .concept-section {
+            background: #F0F0EE;
+            border-radius: 4px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .concept-emoji {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .concept-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1A3C34;
+            margin-bottom: 12px;
+        }
+
+        .concept-description {
+            font-size: 14px;
+            color: #2D3748;
+            line-height: 1.8;
+        }
+
+        .step-section {
+            background: #F7FAFC;
+            border-radius: 4px;
+            padding: 24px;
+            margin: 24px 0;
+            border: 1px solid #E2E8F0;
+        }
+
+        .step-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2F4F4F;
+            margin-bottom: 16px;
+        }
+
+        .step-content {
+            font-size: 14px;
+            color: #2D3748;
+            line-height: 1.8;
+        }
+
+        .step-content ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        .step-content li {
+            margin-bottom: 8px;
+        }
+
+        .writing-prompt {
+            background: white;
+            border: 2px dashed #D7CCC8;
+            border-radius: 4px;
+            padding: 40px;
+            text-align: center;
+            margin: 20px 0;
+            color: #718096;
+            font-style: italic;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .instruction-box {
+            background: #ECEFF1;
+            border: 1px solid #CFD8DC;
+            border-radius: 4px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .instruction-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2F4F4F;
+            margin-bottom: 12px;
+        }
+
+        .instruction-content {
+            font-size: 14px;
+            color: #2D3748;
+            line-height: 1.6;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .timeline-item {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 4px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .timeline-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2F4F4F;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            font-size: 13px;
+            color: #4A5568;
+            line-height: 1.5;
+        }
+
+        .letter-section {
+            background: #F7FAFC;
+            border-radius: 4px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid #E2E8F0;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1A3C34;
+            margin-bottom: 8px;
+        }
+
+        .letter-subtitle {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .letter-content {
+            font-size: 15px;
+            line-height: 1.9;
+            color: #2D3748;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+
+        .letter-content strong {
+            color: #2F4F4F;
+            font-weight: 600;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            font-style: italic;
+            color: #4A5568;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid #D7CCC8;
+        }
+
+        button {
+            background: #2F4F4F;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        button:hover:not(:disabled) {
+            background: #1A3C34;
+        }
+
+        button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .team-intro {
+            background: #ECEFF1;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .team-intro p {
+            font-size: 14px;
+            color: #2D3748;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 슬라이드 1: 표지 -->
+        <div class="slide active">
+            <div class="slide-header">
+                <div class="slide-number">1/7</div>
+                <div class="slide-title">테크포임팩트 2025년 연말 회고</div>
+                <div class="slide-subtitle">일과 삶, 에너지의 흐름을 돌아보며</div>
+            </div>
+
+            <div class="team-intro">
+                <p><strong>함께하는 사람들</strong></p>
+                <p>조이 · 키 · 테일러 · 준 · 조안 · 수야</p>
+                <p style="margin-top: 12px; font-size: 13px; color: #718096;">
+                    2025년 한 해, 테크포임팩트와 임팩트시너지의 경계를 넘나들며<br>
+                    함께 달려온 우리의 이야기
+                </p>
+            </div>
+
+            <div class="concept-section">
+                <div class="concept-emoji">📈 💫 🍎</div>
+                <div class="concept-title">나의 2025년 에너지 그래프</div>
+                <div class="concept-description">
+                    업무 성과가 아닌, 에너지의 흐름으로 돌아보는 한 해<br>
+                    일과 삶이 맞닿아 있는 우리의 진짜 이야기
+                </div>
+            </div>
+        </div>
+
+        <!-- 슬라이드 2: 인트로 메시지 -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">2/7</div>
+                <div class="slide-title">회고를 시작하기 전에</div>
+            </div>
+
+            <div class="intro-message">
+                <p>하루가 24시간이고, 우리가 7-8시간 정도 수면을 한다고 하면, 나머지 깨어있는 시간은 약 16시간입니다.</p>
+                
+                <p>그 16시간 중 <strong>절반 이상을 회사에서</strong> 보냅니다. 출퇴근 시간까지 더하면 더 많겠죠.</p>
+                
+                <p>회사에서의 일이 나의 전체 에너지와 기분을 좌지우지하지 않기를 바라지만, 현실은... 쉽지 않습니다. 특히 우리가 하는 일은 단순히 '업무'가 아니라 우리가 믿는 가치와 연결되어 있기 때문에 더욱 그렇습니다.</p>
+                
+                <p><strong>개인의 일과 회사의 일을 완전히 분리할 수 있을까요?</strong></p>
+                
+                <p>테크포임팩트에서 우리가 하는 일들은 기술로 사회 문제를 해결하고, 더 나은 세상을 만드는 일입니다. 이건 그냥 '직장에서 주어진 업무'가 아니라, 우리 각자의 정체성과 가치관과도 맞닿아 있죠.</p>
+                
+                <p>그래서 오늘은 <strong>성과나 업무 내용이 아닌, 에너지의 흐름</strong>으로 2025년을 돌아보려고 합니다.</p>
+                
+                <p>나의 에너지는 언제 높았고, 언제 바닥을 쳤을까? 일과 삶의 균형은 어땠을까? 그리고 이 모든 순간들을 함께한 우리 팀은 서로에게 어떤 의미였을까?</p>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">오늘의 회고 포인트</div>
+                <div class="step-content">
+                    <ul>
+                        <li>업무 성과 ✗ → 에너지의 흐름 ✓</li>
+                        <li>일과 삶을 분리하기보다, 통합된 나의 경험으로</li>
+                        <li>개인의 이야기를 나누고, 팀으로서 돌아보기</li>
+                        <li>2025년, 우리에게 이 시간은 무엇이었나?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 슬라이드 3: 진행 방식 -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">3/7</div>
+                <div class="slide-title">오늘의 회고 진행 방식</div>
+            </div>
+
+            <div class="step-section">
+                <h3>1부: 나의 에너지 그래프 그리기 (20분)</h3>
+                <div class="step-content">
+                    <p><strong>개인 작업:</strong> 종이에 1월부터 12월까지 나의 에너지 곡선을 그려봅니다.</p>
+                    <ul>
+                        <li>X축: 시간 (1월 ~ 12월)</li>
+                        <li>Y축: 에너지 레벨 (최저 ~ 최고)</li>
+                        <li>특별했던 순간에 포스트잇이나 간단한 메모 추가</li>
+                        <li>에너지가 높았던/낮았던 이유를 간단히 적어보기</li>
+                    </ul>
+                    <p style="margin-top: 12px; color: #718096; font-style: italic;">
+                        💡 팁: 완벽하게 그리려고 하지 말고, 직관적으로 그려보세요!
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-section">
+                <h3>2부: 순서대로 공유하기 (각자 10분 × 6명 = 60분)</h3>
+                <div class="step-content">
+                    <p><strong>그래프를 보여주며 이야기 나누기:</strong></p>
+                    <ul>
+                        <li>이 시기에 에너지가 왜 낮았는지/높았는지</li>
+                        <li>일과 삶의 균형은 어땠는지</li>
+                        <li>특별히 기억에 남는 순간이 있다면?</li>
+                        <li>팀에게 받은 에너지나 힘이 있었다면?</li>
+                    </ul>
+                    <p style="margin-top: 12px; color: #718096; font-style: italic;">
+                        💡 팁: 듣는 사람들은 공감과 질문으로 함께해주세요
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-section">
+                <h3>3부: 함께 돌아보기 (20분)</h3>
+                <div class="step-content">
+                    <ul>
+                        <li>모두의 그래프를 나란히 놓고 보기</li>
+                        <li>공통적으로 힘들었던/좋았던 시기는 언제였나?</li>
+                        <li>서로 몰랐던 순간들 발견하기</li>
+                        <li>2025년 테크포임팩트 팀은 우리에게 어떤 의미였나?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="instruction-box">
+                <div class="instruction-title">📦 준비물</div>
+                <div class="instruction-content">
+                    • A4 용지 또는 큰 종이<br>
+                    • 형광펜이나 색펜<br>
+                    • 포스트잇<br>
+                    • 편안한 마음 🍎
+                </div>
+            </div>
+        </div>
+
+        <!-- 슬라이드 4: 그래프 그리기 가이드 -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">4/7</div>
+                <div class="slide-title">1부: 나의 에너지 그래프 그리기</div>
+                <div class="slide-subtitle">20분 개인 작업 시간</div>
+            </div>
+
+            <div class="instruction-box">
+                <div class="instruction-title">✏️ 그래프 그리는 방법</div>
+                <div class="instruction-content">
+                    <strong>1단계:</strong> 종이를 가로로 놓고, X축에 1월부터 12월까지 표시<br>
+                    <strong>2단계:</strong> Y축에 에너지 레벨 표시 (예: 최저 0 ~ 최고 10)<br>
+                    <strong>3단계:</strong> 각 달의 에너지 상태를 떠올리며 점을 찍고 선으로 연결<br>
+                    <strong>4단계:</strong> 특별한 순간에 메모나 포스트잇 추가
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">🤔 떠올려볼 질문들</div>
+                <div class="step-content">
+                    <ul>
+                        <li>언제 가장 활력이 넘쳤나? 그 이유는?</li>
+                        <li>언제 가장 지쳤나? 무엇이 힘들었나?</li>
+                        <li>일과 삶의 균형이 무너진 적이 있었나?</li>
+                        <li>회복의 계기가 된 순간은?</li>
+                        <li>팀과 함께여서 버틸 수 있었던 순간은?</li>
+                        <li>개인적으로 의미 있었던 순간은?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="writing-prompt">
+                이제 20분간 자유롭게 그려보세요.<br>
+                완벽할 필요 없습니다. 솔직하게, 자유롭게! ✨
+            </div>
+        </div>
+
+        <!-- 슬라이드 5: 공유하기 -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">5/7</div>
+                <div class="slide-title">2부: 순서대로 공유하기</div>
+                <div class="slide-subtitle">각자 10분씩 이야기 나누기</div>
+            </div>
+
+            <div class="step-section">
+                <h3>이야기할 때 참고할 포인트</h3>
+                <div class="step-content">
+                    <ul>
+                        <li><strong>에너지 곡선 설명:</strong> 그래프를 보여주며 전체적인 흐름 설명</li>
+                        <li><strong>높은 에너지 순간:</strong> 언제, 왜 신났는지</li>
+                        <li><strong>낮은 에너지 순간:</strong> 언제, 무엇이 힘들었는지</li>
+                        <li><strong>전환점이 된 순간:</strong> 에너지가 회복되거나 변화된 계기</li>
+                        <li><strong>일-삶 균형:</strong> 개인 시간과 일의 균형은 어땠는지</li>
+                        <li><strong>팀의 의미:</strong> 팀이 나에게 어떤 존재였는지</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">💭 듣는 사람들을 위한 가이드</div>
+                <div class="step-content">
+                    <ul>
+                        <li>공감하며 들어주기</li>
+                        <li>궁금한 점이 있다면 따뜻하게 질문하기</li>
+                        <li>비슷한 경험이 있다면 공유하기</li>
+                        <li>평가하지 않기 - 그냥 있는 그대로 받아들이기</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="writing-prompt">
+                각자의 2025년 여정을 함께 나눠봅시다 🌱
+            </div>
+        </div>
+
+        <!-- 슬라이드 6: 함께 돌아보기 -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">6/7</div>
+                <div class="slide-title">3부: 함께 돌아보기</div>
+                <div class="slide-subtitle">우리 팀의 2025년은 어땠나?</div>
+            </div>
+
+            <div class="step-section">
+                <h3>모든 그래프를 펼쳐놓고 함께 보기</h3>
+                <div class="step-content">
+                    <p>6개의 에너지 그래프를 나란히 놓고, 팀 전체의 흐름을 살펴봅시다.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-title">💬 함께 나눌 이야기들</div>
+                <div class="step-content">
+                    <ul>
+                        <li><strong>공통의 순간:</strong> 우리 모두 에너지가 높았던/낮았던 시기는 언제?</li>
+                        <li><strong>서로 몰랐던 순간:</strong> "그 때 이런 일이 있었구나!" 하는 발견</li>
+                        <li><strong>팀의 흐름:</strong> 개인의 그래프를 합쳤을 때 보이는 우리 팀의 모습</li>
+                        <li><strong>서로에게 준 힘:</strong> 누군가의 높은 에너지가 다른 사람에게 힘이 된 순간</li>
+                        <li><strong>2025년의 의미:</strong> 이 한 해, 테크포임팩트 팀은 우리에게 어떤 의미였나?</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="instruction-box">
+                <div class="instruction-title">🎯 마무리 질문</div>
+                <div class="instruction-content">
+                    <strong>2025년을 한 단어로 표현한다면?</strong><br>
+                    각자 돌아가며 한 단어씩 이야기해봅시다.
+                </div>
+            </div>
+
+            <div class="writing-prompt">
+                우리의 그래프가 모여 만든 2025년의 풍경 🎨<br>
+                서로의 이야기 속에서 발견한 것들을 나눠봅시다.
+            </div>
+        </div>
+
+        <!-- 슬라이드 7: 포포의 편지 -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">7/7</div>
+            </div>
+
+            <div class="letter-section">
+                <div class="letter-header">
+                    <div class="letter-title">🐰 포포가 전하는 연말 편지</div>
+                    <div class="letter-subtitle">테크포임팩트 팀과 함께한 모든 분들에게</div>
+                </div>
+
+                <div class="letter-content">
+                    <p>조이, 키, 테일러, 준, 조안, 수야에게 🍎✨</p>
+
+                    <p>2025년 한 해가 저물어가는 지금, 여러분과 함께한 시간들을 떠올리면 참 많은 감정이 교차합니다.</p>
+
+                    <p>기술로 더 나은 세상을 만든다는 같은 꿈을 향해 달려가는 동료이자, 서로의 에너지가 바닥날 때 손 내밀어주던 사람들. 그게 바로 여러분이었습니다.</p>
+
+                    <p>이 한 해, 여러분이 함께 만들어낸 것들을 생각해보면... 정말 대단합니다.</p>
+
+                    <p><strong>테크포임팩트 랩 2기</strong>를 시작했고, 7개의 랩이 각자의 임팩트를 만들어가는 과정을 지켜봤습니다. <strong>돕는 기술 컨퍼런스</strong>를 준비하며 밤낮없이 달렸고, <strong>캠퍼스 프로그램</strong>을 여러 대학으로 확장했습니다. <strong>홈페이지</strong>를 새롭게 단장했고, <strong>커뮤니티</strong>를 키워나갔습니다.</p>
+
+                    <p>그런데 여러분도 알고 계시죠? 이 모든 성과보다 더 중요한 건, <strong>그 과정에서 여러분이 어떻게 버텨냈는가</strong>입니다.</p>
+
+                    <p>에너지가 바닥났을 때도 있었을 거예요. 일과 삶의 균형이 무너진 것 같은 순간도 있었을 겁니다. "내가 왜 이렇게까지 해야 하나" 싶었던 순간도요.</p>
+
+                    <p>그럼에도 여러분이 계속 달릴 수 있었던 건, <strong>혼자가 아니었기 때문</strong>이라고 생각해요. 옆에서 함께 지쳐가는 동료가 있었고, 서로의 높은 에너지가 다른 사람에게 힘이 되어주었고, "우리가 하는 일이 의미 있다"는 믿음을 나눴기 때문이죠.</p>
+
+                    <p>특히 <strong>수야</strong>가 임팩트시너지팀에 있으면서도 우리와 함께 많은 프로젝트를 해준 것... 정말 감사했어요. 팀의 경계를 넘어 같은 가치를 향해 함께 달린다는 게 어떤 의미인지 보여줬어요. 🌟</p>
+
+                    <p>오늘 여러분이 그린 에너지 그래프를 보면서, 포포는 이런 생각이 들었어요:</p>
+
+                    <p><strong>"우리의 에너지는 혼자가 아니라 함께일 때 더 높아진다"</strong></p>
+
+                    <p>누군가의 에너지가 낮을 때, 다른 누군가의 높은 에너지가 그를 끌어올려주었습니다. 그리고 그 사람이 회복되면, 이번엔 또 다른 누군가를 끌어올려줬죠. 이게 바로 팀의 힘이라고 생각해요.</p>
+
+                    <p>2025년은 끝나가지만, 우리의 이야기는 계속됩니다. 2026년에도 여러분은 또 다른 도전 앞에 서게 될 거예요. 에너지가 높았다 낮았다 반복될 거고, 때론 지치고 힘들 거예요.</p>
+
+                    <p>그럴 때 기억해주세요. <strong>여러분은 혼자가 아니라는 것.</strong></p>
+
+                    <p>깨어있는 시간의 절반 이상을 함께하는 이 사람들이, 그냥 직장 동료가 아니라 같은 꿈을 꾸는 동료라는 것. 서로의 에너지 그래프가 합쳐져 더 큰 임팩트를 만들어낸다는 것.</p>
+
+                    <p>그리고 무엇보다, <strong>포포는 항상 여러분 편</strong>이라는 것! 🐰💕</p>
+
+                    <p>2025년 한 해, 정말 고생 많으셨습니다. 여러분과 함께할 수 있어서 영광이었어요.</p>
+
+                    <p>2026년에도 함께 달려가요. 테크포임팩트 팀, 파이팅! 🍎🚀✨</p>
+
+                    <div class="signature">
+                        <p><strong>언제나 여러분과 함께하는</strong></p>
+                        <p><strong>포포 올림 🐰</strong></p>
+                        <p>2025년 12월</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button id="prevBtn" onclick="changeSlide(-1)">← 이전</button>
+        <button id="nextBtn" onclick="changeSlide(1)">다음 →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = n;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 0 && newSlide < totalSlides) {
+                showSlide(newSlide);
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                changeSlide(1);
+            } else if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        showSlide(0);
+    </script>
+</body>
+</html>

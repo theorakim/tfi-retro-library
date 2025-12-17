@@ -3,66 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4L 회고 - 테크포임팩트 회고 아카이브</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>4L 회고 - TFI Retrospective Archive</title>
+    <link rel="stylesheet" href="../css/modern-archive.css">
 </head>
-<body data-lang="ko">
-    <div class="container">
-        <header>
-            <button class="language-toggle" onclick="toggleLanguage()">
-                <span id="lang-toggle-text">EN</span>
-            </button>
-            <h1 data-ko="Team Tech for Impact" data-en="Team Tech for Impact">Team Tech for Impact</h1>
-            <div class="subtitle" data-ko="A Magazine Curated by Popo | Est. November 2024" data-en="A Magazine Curated by Popo | Est. November 2024">A Magazine Curated by Popo | Est. November 2024</div>
-        </header>
-
-        <nav>
-            <a href="../index.html" class="nav-link" data-ko="회고들" data-en="Issues">회고들</a>
-            <a href="../popos-notes.html" class="nav-link" data-ko="포포의 노트" data-en="Popo's Notes">포포의 노트</a>
-            <a href="../manuals.html" class="nav-link" data-ko="매뉴얼" data-en="Manuals">매뉴얼</a>
-            <a href="../about.html" class="nav-link" data-ko="소개" data-en="About">소개</a>
-        </nav>
-
-        <div class="content">
-            <a href="../index.html" class="back-link" data-ko="← 회고들로 돌아가기" data-en="← Back to Issues">← 회고들로 돌아가기</a>
-
-            <div class="retro-detail">
-                <h2 data-ko="4L 회고" data-en="4L Retrospective">4L 회고</h2>
-                <p><strong data-ko="일자:" data-en="Date:">일자:</strong> <span data-ko="2024.12, 2025.06" data-en="December 2024, June 2025">2024.12, 2025.06</span><br>
-                <strong data-ko="참석자:" data-en="Participants:">참석자:</strong> <span data-ko="3-5명 (2회 진행)" data-en="3-5 members (2 sessions)">3-5명 (2회 진행)</span></p>
-
-                <h3 style="margin-top: 20px;" data-ko="설명" data-en="Description">설명</h3>
-                <p data-ko="Liked(좋았던 것), Learned(배운 것), Lacked(부족한 것), Longed for(바라는 것)으로 돌아봅니다." data-en="Reflect on Liked, Learned, Lacked, and Longed for aspects.">Liked(좋았던 것), Learned(배운 것), Lacked(부족한 것), Longed for(바라는 것)으로 돌아봅니다.</p>
-
-                <h3 style="margin-top: 20px;" data-ko="적합한 상황" data-en="Suitable Situations">적합한 상황</h3>
-                <p data-ko="전반적인 회고, 학습 및 성장" data-en="General retrospectives, learning and growth">전반적인 회고, 학습 및 성장</p>
-
-                <h3 style="margin-top: 20px;" data-ko="적합한 주기" data-en="Suitable Frequency">적합한 주기</h3>
-                <p data-ko="월간" data-en="Monthly">월간</p>
-
-                <div class="popos-note" style="margin-top: 20px;">
-                    <strong data-ko="포포의 메모:" data-en="Popo's Note:">포포의 메모:</strong><br>
-                    <span data-ko="안정적인 프레임워크. 24.12와 25.06 두 번 사용" data-en="Stable framework. Used twice in December 2024 and June 2025">안정적인 프레임워크. 24.12와 25.06 두 번 사용</span>
-                </div>
-
-                <p style="margin-top: 20px;">
-                    <a href="../manual-detail.html?file=4L 회고 1606b834ddda80d39cf5d773ec86c440.md" class="download-btn" data-ko="이 회고 매뉴얼 보기" data-en="View Manual">이 회고 매뉴얼 보기</a>
-                    <a href="../retros/2025june.html" target="_blank" class="download-btn" style="margin-left: 10px; background: #4a9ae1;" data-ko="🎯 실제 슬라이드 보기" data-en="🎯 View Actual Slides">🎯 실제 슬라이드 보기</a>
-                </p>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-title">
+                <h1>TFI Retrospective Archive</h1>
+                <div class="site-subtitle">Team Tech for Impact · Curated by Popo</div>
             </div>
+            <nav class="site-nav">
+                <a href="../index.html" class="nav-link">Archive</a>
+                <a href="../manuals.html" class="nav-link">Manuals</a>
+                <a href="../popo.html" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-narrow section">
+        <!-- Back Link -->
+        <div style="margin-bottom: var(--space-8);">
+            <a href="../index.html" class="btn btn-ghost">
+                <span>←</span>
+                <span>아카이브로 돌아가기</span>
+            </a>
         </div>
 
-        <footer>
-            <strong data-ko="Team Tech for Impact Magazine" data-en="Team Tech for Impact Magazine">Team Tech for Impact Magazine</strong><br>
-            <span data-ko="포포 큐레이팅 | 테일러 편집" data-en="Curated by Popo | Editorial Direction by Taylor">포포 큐레이팅 | 테일러 편집</span><br>
-            © 2025 Kakao Impact
-        </footer>
-    </div>
+        <!-- Header -->
+        <header style="margin-bottom: var(--space-12); padding-bottom: var(--space-8); border-bottom: 1px solid var(--color-border);">
+            <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                DEC 2024, JUN 2025
+            </div>
+            <h1 style="margin-bottom: var(--space-4);">4L 회고</h1>
+            <p class="text-secondary" style="font-size: var(--text-lg); line-height: 1.6; margin-bottom: var(--space-6);">
+                Liked(좋았던 것), Learned(배운 것), Lacked(부족한 것), Longed for(바라는 것)으로 돌아봅니다.
+            </p>
+            <div class="flex gap-6" style="flex-wrap: wrap;">
+                <div>
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-1);">
+                        PARTICIPANTS
+                    </div>
+                    <div class="text-secondary">3-5명 (2회 진행)</div>
+                </div>
+                <div>
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-1);">
+                        FREQUENCY
+                    </div>
+                    <div class="text-secondary">월간</div>
+                </div>
+            </div>
+        </header>
 
-    <div class="counter">
-        VISITORS: <span id="visitor-count">000000</span>
-    </div>
+        <!-- Content Sections -->
+        <article>
+            <!-- 설명 -->
+            <section style="margin-bottom: var(--space-12);">
+                <h3 style="margin-bottom: var(--space-4);">설명</h3>
+                <p class="text-secondary" style="line-height: 1.7;">
+                    4L 회고는 네 가지 관점에서 팀의 경험을 돌아보는 구조화된 회고 방법입니다. Liked(좋았던 것), Learned(배운 것), Lacked(부족한 것), Longed for(바라는 것)의 네 가지 영역을 통해 과거의 성과와 배움을 정리하고, 미래를 위한 개선점을 찾아냅니다.
+                </p>
+            </section>
 
-    <script src="../js/main.js"></script>
+            <!-- 적합한 상황 -->
+            <section style="margin-bottom: var(--space-12);">
+                <h3 style="margin-bottom: var(--space-4);">적합한 상황</h3>
+                <div class="card surface-elevated">
+                    <ul style="list-style: none;">
+                        <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: var(--space-3);">
+                            <span style="color: var(--color-accent);">•</span>
+                            <span class="text-secondary">전반적인 회고가 필요할 때</span>
+                        </li>
+                        <li style="padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); display: flex; align-items: center; gap: var(--space-3);">
+                            <span style="color: var(--color-accent);">•</span>
+                            <span class="text-secondary">팀의 학습과 성장을 강조하고 싶을 때</span>
+                        </li>
+                        <li style="padding: var(--space-3) 0; display: flex; align-items: center; gap: var(--space-3);">
+                            <span style="color: var(--color-accent);">•</span>
+                            <span class="text-secondary">긍정적 요소와 개선점을 균형있게 다루고 싶을 때</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 포포의 메모 -->
+            <section style="margin-bottom: var(--space-12);">
+                <div class="card" style="background: var(--color-accent-subtle); border-color: var(--color-accent-subtle);">
+                    <div class="mono text-accent" style="font-size: var(--text-xs); margin-bottom: var(--space-3);">
+                        🐰 POPO'S NOTE
+                    </div>
+                    <p class="text-secondary">
+                        안정적인 프레임워크. 24.12와 25.06 두 번 사용했습니다. 구조가 명확해서 처음 회고를 시작하는 팀에게 특히 좋습니다. 4L의 순서대로 진행하면 자연스럽게 과거에서 미래로 시선이 이동합니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section style="margin-bottom: var(--space-12);">
+                <div class="flex gap-4" style="flex-wrap: wrap;">
+                    <a href="../manual-detail.html?file=4l-retrospective.md" class="btn btn-primary">
+                        <span>📖</span>
+                        <span>매뉴얼 보기</span>
+                    </a>
+                    <a href="../retros/2025june.html" target="_blank" class="btn btn-secondary">
+                        <span>🎯</span>
+                        <span>실제 슬라이드 보기</span>
+                    </a>
+                </div>
+            </section>
+        </article>
+
+        <!-- Related Retrospectives -->
+        <section style="margin-top: var(--space-16); padding-top: var(--space-12); border-top: 1px solid var(--color-border);">
+            <h3 style="margin-bottom: var(--space-6);">관련 회고</h3>
+            <div class="grid grid-2">
+                <div class="card card-interactive" onclick="window.location.href='kpt.html'">
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-2);">
+                        JAN 2025
+                    </div>
+                    <h4 style="margin-bottom: var(--space-2);">KPT+ 회고</h4>
+                    <p class="text-secondary" style="font-size: var(--text-sm);">
+                        감사와 지속, 도전과 배움
+                    </p>
+                </div>
+                <div class="card card-interactive" onclick="window.location.href='timeline.html'">
+                    <div class="mono text-tertiary" style="font-size: var(--text-xs); margin-bottom: var(--space-2);">
+                        NOV 2024
+                    </div>
+                    <h4 style="margin-bottom: var(--space-2);">타임라인 회고</h4>
+                    <p class="text-secondary" style="font-size: var(--text-sm);">
+                        시간 순서 기반 회고
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <strong>Team Tech for Impact Retrospective Archive</strong>
+            <p class="mono" style="font-size: var(--text-xs); margin-top: var(--space-2);">
+                CURATED BY POPO · EDITORIAL DIRECTION BY TAYLOR
+            </p>
+            <p style="margin-top: var(--space-4);">© 2024-2025 Kakao Impact</p>
+        </div>
+    </footer>
+
+    <!-- Popo FAB -->
+    <div class="fab" onclick="window.location.href='../popo.html'" title="포포와 아카이브 소개">
+        🐰
+    </div>
 </body>
 </html>
