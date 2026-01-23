@@ -76,6 +76,13 @@ const books = {
         participants: '5명 참석',
         method: '한 해를 마무리하며',
         link: 'retros/2025_year_end_retrospective.html'
+    },
+    12: {
+        title: '시동 점검',
+        date: '2026년 1월',
+        participants: '5명 참석',
+        method: '새해 첫 달을 돌아보고 다음 달을 설계하는 회고',
+        link: 'retro-pages/sidong.html'
     }
 };
 
